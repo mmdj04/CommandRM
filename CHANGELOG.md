@@ -11,6 +11,10 @@
 * Fix: Corrigir link "Esqueceu sua senha?" em Portugues
 * Fix: Corrigir import react-router-dom para react-router
 * Fix: Adicionar chave de traducao deals.forcedCaseName em EN/FR/PT-BR
+* Fix: Traduzir botoes de ordenacao ("Ordenar por", "crescente", "decrescente")
+* Fix: Traduzir datas relativas para PT-BR ("hoje as", "ha 3 dias")
+* Fix: Traduzir menu de tema (Claro/Escuro/Sistema)
+* Fix: Atualizar configuracao do banco de dados com labels em PT-BR (status, estagios, categorias, setores, tipos de tarefa)
 * Doc: Adicionar documentacao completa do schema do banco de dados (Issue #264)
 * Traducao: CHANGELOG.md traduzido para Portugues Brasileiro
 * Traducao: Interface de login 100% em Portugues (Entrar, Senha, Esqueceu sua senha?)

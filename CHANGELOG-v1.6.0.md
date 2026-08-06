@@ -9,6 +9,10 @@
 * Fix: Permitir criar oportunidade sem empresa obrigatoria (Issue #129)
 * Fix: Corrigir pagina de login para mostrar opcoes SSO quando configurado (Issue #326)
 * Fix: Corrigir link "Esqueceu sua senha?" em Portugues
+* Fix: Traduzir botoes de ordenacao ("Ordenar por", "crescente", "decrescente")
+* Fix: Traduzir datas relativas para PT-BR ("hoje as", "ha 3 dias")
+* Fix: Traduzir menu de tema (Claro/Escuro/Sistema)
+* Fix: Atualizar configuracao do banco de dados com labels em PT-BR (status, estagios, categorias, setores, tipos de tarefa)
 * Doc: Adicionar documentacao completa do schema do banco de dados (Issue #264)
 * Traducao: CHANGELOG.md traduzido para Portugues Brasileiro
 * Traducao: Interface de login 100% em Portugues (Entrar, Senha, Esqueceu sua senha?)
@@ -23,6 +27,7 @@
 * Fix forgot_password translation key
 * Fix forgot_password PT-BR
 * Traduz CHANGELOG.md para PT-BR
+* Fix: complete PT-BR translations - sort, dates, theme toggle, DB config
 
 ### Issues resolvidas
 
