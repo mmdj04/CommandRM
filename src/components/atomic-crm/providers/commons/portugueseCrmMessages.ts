@@ -192,6 +192,7 @@ export const portugueseCrmMessages = {
     },
     deals: {
       name: "Oportunidade |||| Oportunidades",
+      forcedCaseName: "Oportunidade",
       fields: {
         name: "Nome",
         description: "Descrição",

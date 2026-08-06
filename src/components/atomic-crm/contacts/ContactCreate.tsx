@@ -1,6 +1,6 @@
 import { CreateBase, Form, useGetIdentity, type MutationMode } from "ra-core";
 import { Card, CardContent } from "@/components/ui/card";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 
 import { ContactInputs } from "./ContactInputs";
 import { FormToolbar } from "../layout/FormToolbar";
