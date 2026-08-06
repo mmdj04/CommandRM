@@ -8,7 +8,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Home, ListTodo, Plus, Settings, Users } from "lucide-react";
 import { useTranslate } from "ra-core";
-import { Link, matchPath, useLocation, useMatch } from "react-router";
+import { Link, matchPath, useLocation, useMatch, useNavigate } from "react-router";
 import { ContactCreateSheet } from "../contacts/ContactCreateSheet";
 import { useState } from "react";
 import { NoteCreateSheet } from "../notes/NoteCreateSheet";
@@ -110,6 +110,7 @@ const NavigationButton = ({
 
 const CreateButton = () => {
   const translate = useTranslate();
+  const navigate = useNavigate();
   const contact_id = useMatch("/contacts/:id/*")?.params.id;
   const [contactCreateOpen, setContactCreateOpen] = useState(false);
   const [noteCreateOpen, setNoteCreateOpen] = useState(false);
@@ -166,6 +167,14 @@ const CreateButton = () => {
             }}
           >
             {translate("resources.tasks.forcedCaseName")}
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className="h-12 px-4 text-base"
+            onSelect={() => {
+              navigate("/deals/create");
+            }}
+          >
+            {translate("resources.deals.forcedCaseName")}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

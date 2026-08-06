@@ -113,7 +113,7 @@ export type ContactNote = {
 
 export type Deal = {
   name: string;
-  company_id: Identifier;
+  company_id?: Identifier;
   contact_ids: Identifier[];
   category: string;
   stage: string;

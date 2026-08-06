@@ -1,6 +1,4 @@
 import { required, useTranslate } from "ra-core";
-import { AutocompleteArrayInput } from "@/components/admin/autocomplete-array-input";
-import { ReferenceArrayInput } from "@/components/admin/reference-array-input";
 import { ReferenceInput } from "@/components/admin/reference-input";
 import { TextInput } from "@/components/admin/text-input";
 import { NumberInput } from "@/components/admin/number-input";
@@ -9,9 +7,9 @@ import { SelectInput } from "@/components/admin/select-input";
 import { Separator } from "@/components/ui/separator";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-import { contactOptionText } from "../misc/ContactOption";
 import { useConfigurationContext } from "../root/ConfigurationContext";
 import { AutocompleteCompanyInput } from "../companies/AutocompleteCompanyInput.tsx";
+import { DealContactInput } from "./DealContactInput";
 
 export const DealInputs = () => {
   const isMobile = useIsMobile();
@@ -47,18 +45,11 @@ const DealLinkedToInputs = () => {
       <ReferenceInput source="company_id" reference="companies">
         <AutocompleteCompanyInput
           label="resources.deals.fields.company_id"
-          validate={required()}
           modal
         />
       </ReferenceInput>
 
-      <ReferenceArrayInput source="contact_ids" reference="contacts_summary">
-        <AutocompleteArrayInput
-          label="resources.deals.fields.contact_ids"
-          optionText={contactOptionText}
-          helperText={false}
-        />
-      </ReferenceArrayInput>
+      <DealContactInput />
     </div>
   );
 };

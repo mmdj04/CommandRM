@@ -1,5 +1,6 @@
 import { CreateBase, Form, useGetIdentity, type MutationMode } from "ra-core";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLocation } from "react-router-dom";
 
 import { ContactInputs } from "./ContactInputs";
 import { FormToolbar } from "../layout/FormToolbar";
@@ -15,6 +16,8 @@ export const ContactCreate = ({
   mutationMode?: MutationMode;
 }) => {
   const { identity } = useGetIdentity();
+  const location = useLocation();
+  const companyId = (location.state as any)?.record?.company_id;
 
   return (
     <CreateBase
@@ -29,6 +32,7 @@ export const ContactCreate = ({
               sales_id: identity?.id,
               email_jsonb: defaultEmailJsonb,
               phone_jsonb: defaultPhoneJsonb,
+              ...(companyId ? { company_id: companyId } : {}),
             }}
           >
             <Card>
