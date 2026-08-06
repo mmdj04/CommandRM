@@ -151,8 +151,8 @@ FAILED: rollback merge failed: <one-line, plain-English reason — say what was 
 
 ## NEVER while resolving a rollback conflict
 
-- ❌ Run `git merge`, `git push`, `git checkout`, `--no-verify`. The only branch-moving commands allowed are: `git reset --hard <BASE_BRANCH>` exactly once at Step 0, and `git reset --hard HEAD^` to undo your own empty revert as documented in Outcome B.
-- ❌ Edit anything outside `<WORKTREE_PATH>/`. Never edit `$CLAUDE_PROJECT_DIR/...` directly, never edit `.git/` internals.
-- ❌ Drive-by refactors, prettier formatting changes, or unrelated edits. Edits must be **caused** by the revert (target additions to remove) or by a typecheck/unit/e2e failure that the revert created.
-- ❌ Dispatch agents or `SendMessage` — you are solo here.
-- ❌ Stop without either `DONE:` or `FAILED:` — the orchestrator's STATE RB-MERGE relies on those literal prefixes.
+- Run `git merge`, `git push`, `git checkout`, `--no-verify`. The only branch-moving commands allowed are: `git reset --hard <BASE_BRANCH>` exactly once at Step 0, and `git reset --hard HEAD^` to undo your own empty revert as documented in Outcome B.
+- Edit anything outside `<WORKTREE_PATH>/`. Never edit `$CLAUDE_PROJECT_DIR/...` directly, never edit `.git/` internals.
+- Drive-by refactors, prettier formatting changes, or unrelated edits. Edits must be **caused** by the revert (target additions to remove) or by a typecheck/unit/e2e failure that the revert created.
+- Dispatch agents or `SendMessage` — you are solo here.
+- Stop without either `DONE:` or `FAILED:` — the orchestrator's STATE RB-MERGE relies on those literal prefixes.

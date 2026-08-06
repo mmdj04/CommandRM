@@ -1,34 +1,34 @@
-# UI Components
+# Componentes de UI
 
-The components in this directory come from [shadcn/ui](https://ui.shadcn.com/). They are low-level building blocks for creating user interfaces, including:
+Os componentes neste diretorio vêm do [shadcn/ui](https://ui.shadcn.com/). Sao blocos de construcao de nivel baixo para criar interfaces de usuario, incluindo:
 
-- Badges
-- Buttons
-- Cards
-- Dialogs
-- Forms Inputs
-- Navigation MMenus
-- Tables
-- Tabs
-- Tooltips
-- And more...
+- Distintivos
+- Botoes
+- Cartoes
+- Dialogos
+- Entradas de Formulario
+- Menus de Navegacao
+- Tabelas
+- Abas
+- Dicas de Ferramentas
+- E mais...
 
-These components are built on top of [Radix UI](https://www.radix-ui.com/) and styled using [Tailwind CSS](https://tailwindcss.com/).
+Esses componentes sao construidos sobre [Radix UI](https://www.radix-ui.com/) e estilizados usando [Tailwind CSS](https://tailwindcss.com/).
 
-## Documentation
+## Documentacao
 
-You can find the documentation for these components on the [shadcn/ui website](https://ui.shadcn.com/docs).
+Voce pode encontrar a documentacao desses componentes no [site do shadcn/ui](https://ui.shadcn.com/docs).
 
-## Customization
+## Personalizacao
 
-In CommandRM, these components are sometimes slightly modified to fit the look and feel of the application. You can customize them further by editing the source files in this directory.
+No CommandRM, esses componentes as vezes sao ligeiramente modificados para se adequar a aparencia e sensacao da aplicacao. Voce pode personaliza-los ainda mais editando os arquivos de codigo fonte neste diretorio.
 
-## Updates
+## Atualizacoes
 
-Shadcn/ui components are actively maintained and updated. To add or update a UI component in CommandRM, type the following command:
+Os componentes do shadcn/ui sao ativamente mantidos e atualizados. Para adicionar ou atualizar um componente de UI no CommandRM, digite o seguinte comando:
 
 ```
-npx shadcn@latest add [component-name]
+npx shadcn@latest add [nome-do-componente]
 ```
 
-The admin components have a dependency on some ui components, so if you update the admin components, this will also update the ui components. Check [the admin components readme](../admin/Readme.md) for the command to update them.
+Os componentes admin tem uma dependencia de alguns componentes de UI, entao se voce atualizar os componentes admin, isso tambem atualizara os componentes de UI. Consulte [o readme dos componentes admin](../admin/Readme.md) para o comando para atualiza-los.

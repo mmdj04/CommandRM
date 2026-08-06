@@ -1,193 +1,193 @@
 # AGENTS.md
 
-## Project Overview
+## Visao Geral do Projeto
 
-Atomic CRM is a full-featured CRM built with React, shadcn-admin-kit, and Supabase. It provides contact management, task tracking, notes, email capture, and deal management with a Kanban board.
+CommandRM e um CRM completo construido com React, shadcn-admin-kit e Supabase. Ele fornece gerenciamento de contatos, acompanhamento de tarefas, anotacoes, captura de emails e gerenciamento de oportunidades com um quadro Kanban.
 
-## Development Commands
+## Comandos de Desenvolvimento
 
-### Setup
+### Configuracao
 ```bash
-make install          # Install dependencies (frontend, backend, local Supabase)
-make start            # Start full stack with real API (Supabase + Vite dev server)
-make stop             # Stop the stack
-make start-demo       # Start full-stack with FakeRest data provider
+make install          # Instalar dependencias (frontend, backend, Supabase local)
+make start            # Iniciar stack completo com API real (Supabase + servidor de desenvolvimento Vite)
+make stop             # Parar o stack
+make start-demo       # Iniciar stack completo com provedor de dados FakeRest
 ```
 
-### Testing and Code Quality
+### Testes e Qualidade do Codigo
 
 ```bash
-make test             # Run unit tests (vitest)
-make typecheck        # Run TypeScript type checking
-make lint             # Run ESLint and Prettier checks
+make test             # Executar testes unitarios (vitest)
+make typecheck        # Executar verificacao de tipos TypeScript
+make lint             # Executar verificacoes ESLint e Prettier
 ```
 
-### Building
+### Compilacao
 
 ```bash
-make build            # Build production bundle (runs tsc + vite build)
+make build            # Compilar pacote de producao (executa tsc + vite build)
 ```
 
-### Database Management
+### Gerenciamento de Banco de Dados
 
-The database schema is defined declaratively in `supabase/schemas/` (source of truth). Migrations in `supabase/migrations/` are auto-generated and should generally not be edited directly — but sometimes manual adjustment is needed (e.g., replacing a DROP+CREATE with an ALTER TABLE RENAME for column renames). Function definitions in `02_functions.sql` must use the exact `pg_dump` format (run `npx supabase db dump --local --schema public`) to avoid phantom diffs.
+O esquema do banco de dados e definido declarativamente em `supabase/schemas/` (fonte da verdade). As migracoes em `supabase/migrations/`, geradas automaticamente, nao devem ser editadas diretamente - mas as vezes e necessario um ajuste manual (por exemplo, substituir um DROP+CREATE por um ALTER TABLE RENAME para renomear colunas). As definicoes de funcoes em `02_functions.sql` devem usar exatamente o formato `pg_dump` (execute `npx supabase db dump --local --schema public`) para evitar diferencas fantasma.
 
 ```bash
-npx supabase db diff --local -f <name>  # Generate migration from schema changes
-npx supabase migration up --local       # Apply migrations locally
-npx supabase db push                    # Push migrations to remote
-npx supabase db reset --local           # Reset local database (destructive)
+npx supabase db diff --local -f <nome>  # Gerar migracao a partir de alteracoes no esquema
+npx supabase migration up --local       # Aplicar migracoes localmente
+npx supabase db push                    # Enviar migracoes para o remoto
+npx supabase db reset --local           # Redefinir banco de dados local (destrutivo)
 ```
 
-### Registry (Shadcn Components)
+### Registro (Componentes Shadcn)
 
 ```bash
-make registry-gen     # Generate registry.json (runs automatically on pre-commit)
-make registry-build   # Build Shadcn registry
+make registry-gen     # Gerar registry.json (executa automaticamente no pre-commit)
+make registry-build   # Compilar registro Shadcn
 ```
 
-## Architecture
+## Arquitetura
 
-### Technology Stack
+### Stack Tecnologico
 
 - **Frontend**: React 19 + TypeScript + Vite
-- **Routing**: React Router v7
-- **Data Fetching**: React Query (TanStack Query)
-- **Forms**: React Hook Form
-- **Application Logic**: shadcn-admin-kit + ra-core (react-admin headless)
-- **UI Components**: Shadcn UI + Radix UI
-- **Styling**: Tailwind CSS v4
-- **Backend**: Supabase (PostgreSQL + REST API + Auth + Storage + Edge Functions)
-- **Testing**: Vitest
+- **Roteamento**: React Router v7
+- **Busca de Dados**: React Query (TanStack Query)
+- **Formularios**: React Hook Form
+- **Logica da Aplicacao**: shadcn-admin-kit + ra-core (react-admin headless)
+- **Componentes de UI**: Shadcn UI + Radix UI
+- **Estilizacao**: Tailwind CSS v4
+- **Backend**: Supabase (PostgreSQL + API REST + Autenticacao + Armazenamento + Funcoes Edge)
+- **Testes**: Vitest
 
-### Directory Structure
+### Estrutura de Diretorios
 
 ```
 src/
 ├── components/
-│   ├── admin/              # Shadcn Admin Kit components (mutable dependency)
-│   ├── atomic-crm/         # Main CRM application code (~15,000 LOC)
-│   │   ├── activity/       # Activity logs
-│   │   ├── companies/      # Company management
-│   │   ├── contacts/       # Contact management (includes CSV import/export)
-│   │   ├── dashboard/      # Dashboard widgets
-│   │   ├── deals/          # Deal pipeline (Kanban)
-│   │   ├── filters/        # List filters
-│   │   ├── layout/         # App layout components
-│   │   ├── login/          # Authentication pages
-│   │   ├── misc/           # Shared utilities
-│   │   ├── notes/          # Note management
-│   │   ├── providers/      # Data providers (Supabase + FakeRest)
-│   │   ├── root/           # Root CRM component
-│   │   ├── sales/          # Sales team management
-│   │   ├── settings/       # Settings page
-│   │   ├── simple-list/    # List components
-│   │   ├── tags/           # Tag management
-│   │   └── tasks/          # Task management
-│   ├── supabase/           # Supabase-specific auth components
-│   └── ui/                 # Shadcn UI components (mutable dependency)
-├── hooks/                  # Custom React hooks
-├── lib/                    # Utility functions
-└── App.tsx                 # Application entry point
+│   ├── admin/              # Componentes Shadcn Admin Kit (dependencia mutavel)
+│   ├── commandrm/          # Codigo principal do CRM (~15.000 linhas)
+│   │   ├── activity/       # Logs de atividade
+│   │   ├── companies/      # Gerenciamento de empresas
+│   │   ├── contacts/       # Gerenciamento de contatos (inclui import/export CSV)
+│   │   ├── dashboard/      # Widgets do painel
+│   │   ├── deals/          # Pipeline de oportunidades (Kanban)
+│   │   ├── filters/        # Filtros de lista
+│   │   ├── layout/         # Componentes de layout do app
+│   │   ├── login/          # Paginas de autenticacao
+│   │   ├── misc/           # Utilitarios compartilhados
+│   │   ├── notes/          # Gerenciamento de notas
+│   │   ├── providers/      # Provedores de dados (Supabase + FakeRest)
+│   │   ├── root/           # Componente raiz do CRM
+│   │   ├── sales/          # Gerenciamento da equipe de vendas
+│   │   ├── settings/       # Pagina de configuracoes
+│   │   ├── simple-list/    # Componentes de lista
+│   │   ├── tags/           # Gerenciamento de etiquetas
+│   │   └── tasks/          # Gerenciamento de tarefas
+│   ├── supabase/           # Componentes de autenticacao especificos do Supabase
+│   └── ui/                 # Componentes Shadcn UI (dependencia mutavel)
+├── hooks/                  # Hooks React personalizados
+├── lib/                    # Funcoes utilitarias
+└── App.tsx                 # Ponto de entrada da aplicacao
 
 supabase/
-├── functions/              # Edge functions (user management, inbound email)
-├── migrations/             # Database migrations (auto-generated, do not edit directly)
-└── schemas/                # Declarative schema (source of truth for DB structure)
+├── functions/              # Funcoes Edge (gerenciamento de usuarios, email de entrada)
+├── migrations/             # Migracoes do banco de dados (geradas automaticamente, nao edite diretamente)
+└── schemas/                # Esquema declarativo (fonte da verdade para a estrutura do DB)
 ```
 
-### Key Architecture Patterns
+### Padroes Principais de Arquitetura
 
-For more details, check out the doc/src/content/docs/developers/architecture-choices.mdx document.
+Para mais detalhes, consulte o documento doc/src/content/docs/developers/architecture-choices.mdx.
 
-#### Mutable Dependencies
+#### Dependencias Mutaveis
 
-The codebase includes mutable dependencies that should be modified directly if needed:
-- `src/components/admin/`: Shadcn Admin Kit framework code
-- `src/components/ui/`: Shadcn UI components
+O codigo fonte inclui dependencias mutaveis que devem ser modificadas diretamente se necessario:
+- `src/components/admin/`: Codigo do framework Shadcn Admin Kit
+- `src/components/ui/`: Componentes Shadcn UI
 
-#### Configuration via `<CRM>` Component
+#### Configuracao via Componente `<CRM>`
 
-The `src/App.tsx` file renders the `<CRM>` component, which accepts props for domain-specific configuration:
-- `contactGender`: Gender options
-- `companySectors`: Company industry sectors
-- `dealCategories`, `dealStages`, `dealPipelineStatuses`: Deal configuration
-- `noteStatuses`: Note status options with colors
-- `taskTypes`: Task type options
-- `logo`, `title`: Branding
-- `lightTheme`, `darkTheme`: Theme customization
-- `disableTelemetry`: Opt-out of anonymous usage tracking
+O arquivo `src/App.tsx` renderiza o componente `<CRM>`, que aceita props para configuracao especifica do dominio:
+- `contactGender`: Opcoes de genero
+- `companySectors`: Setores industriais das empresas
+- `dealCategories`, `dealStages`, `dealPipelineStatuses`: Configuracao de oportunidades
+- `noteStatuses`: Opcoes de status das notas com cores
+- `taskTypes`: Opcoes de tipos de tarefa
+- `logo`, `title`: Identidade visual
+- `lightTheme`, `darkTheme`: Personalizacao do tema
+- `disableTelemetry`: Opt-out do rastreamento anonimo de uso
 
-#### Database Views
+#### Visualizacoes do Banco de Dados
 
-Complex queries are handled via database views to simplify frontend code and reduce HTTP overhead. For example, `contacts_summary` provides aggregated contact data including task counts.
+Consultas complexas sao tratadas via visualizacoes do banco de dados para simplificar o codigo do frontend e reduzir a sobrecarga HTTP. Por exemplo, `contacts_summary` fornece dados consolidados de contatos incluindo contagens de tarefas.
 
-#### Database Triggers
+#### Gatilhos do Banco de Dados
 
-User data syncs between Supabase's `auth.users` table and the CRM's `sales` table via triggers (see `supabase/schemas/04_triggers.sql`).
+Os dados do usuario sao sincronizados entre a tabela `auth.users` do Supabase e a tabela `sales` do CRM via gatilhos (veja `supabase/schemas/04_triggers.sql`).
 
-#### Edge Functions
+#### Funcoes Edge
 
-Located in `supabase/functions/`:
-- User management (creating/updating users, account disabling)
-- Inbound email webhook processing
+Localizadas em `supabase/functions/`:
+- Gerenciamento de usuarios (criar/atualizar usuarios, desabilitar contas)
+- Processamento de webhook de email de entrada
 
-#### Data Providers
+#### Provedores de Dados
 
-Two data providers are available:
-1. **Supabase** (default): Production backend using PostgreSQL
-2. **FakeRest**: In-browser fake API for development/demos, resets on page reload
+Dois provedores de dados estao disponiveis:
+1. **Supabase** (padrao): Backend de producao usando PostgreSQL
+2. **FakeRest**: API falsa no navegador para desenvolvimento/demonstracoes, reinicia ao recarregar a pagina
 
-When using FakeRest, database views are emulated in the frontend. Test data generators are in `src/components/atomic-crm/providers/fakerest/dataGenerator/`.
+Ao usar FakeRest, as visualizacoes do banco de dados sao emuladas no frontend. Os geradores de dados de teste estao em `src/components/commandrm/providers/fakerest/dataGenerator/`.
 
-#### Filter Syntax
+#### Sintaxe de Filtros
 
-List filters follow the `ra-data-postgrest` convention with operator concatenation: `field_name@operator` (e.g., `first_name@eq`). The FakeRest adapter maps these to FakeRest syntax at runtime.
+Os filtros de lista seguem a convencao `ra-data-postgrest` com concatenacao de operadores: `nome_campo@operador` (por exemplo, `first_name@eq`). O adaptador FakeRest mapeia esses para a sintaxe do FakeRest em tempo de execucao.
 
-## Development Workflows
+## Fluxos de Trabalho de Desenvolvimento
 
-### Path Aliases
+### Aliases de Caminho
 
-The project uses TypeScript path aliases configured in `tsconfig.json` and `components.json`:
+O projeto usa aliases de caminho TypeScript configurados em `tsconfig.json` e `components.json`:
 - `@/components` → `src/components`
 - `@/lib` → `src/lib`
 - `@/hooks` → `src/hooks`
 - `@/components/ui` → `src/components/ui`
 
-### Adding Custom Fields
+### Adicionando Campos Personalizados
 
-When modifying contact or company data structures:
-1. Edit the relevant schema file in `supabase/schemas/` (table in `01_tables.sql`, views in `03_views.sql`, etc.)
-2. Generate a migration: `npx supabase db diff --local -f <name>`
-3. Apply it: `npx supabase migration up --local`
-4. Update the sample CSV: `src/components/atomic-crm/contacts/contacts_export.csv`
-5. Update the import function: `src/components/atomic-crm/contacts/useContactImport.tsx`
-6. If using FakeRest, update data generators in `src/components/atomic-crm/providers/fakerest/dataGenerator/`
-7. Don't forget to update the related view (`contacts_summary`, `companies_summary`) in `03_views.sql`
-8. Don't forget the export functions
-9. Don't forget the contact merge logic
+Ao modificar estruturas de dados de contatos ou empresas:
+1. Edite o arquivo de esquema relevante em `supabase/schemas/` (tabela em `01_tables.sql`, visualizacoes em `03_views.sql`, etc.)
+2. Gere uma migracao: `npx supabase db diff --local -f <nome>`
+3. Aplique-a: `npx supabase migration up --local`
+4. Atualize o CSV de exemplo: `src/components/commandrm/contacts/contacts_export.csv`
+5. Atualize a funcao de importacao: `src/components/commandrm/contacts/useContactImport.tsx`
+6. Se estiver usando FakeRest, atualize os geradores de dados em `src/components/commandrm/providers/fakerest/dataGenerator/`
+7. Nao esqueca de atualizar a visualizacao relacionada (`contacts_summary`, `companies_summary`) em `03_views.sql`
+8. Nao esqueca das funcoes de exportacao
+9. Nao esqueca da logica de fusao de contatos
 
-### Running with Test Data
+### Executando com Dados de Teste
 
-Import `test-data/contacts.csv` via the Contacts page → Import button.
+Importe `test-data/contacts.csv` via a pagina de Contatos → Botao Importar.
 
 ### Git Hooks
 
-- Pre-commit: Automatically runs `make registry-gen` to update `registry.json`
+- Pre-commit: Executa automaticamente `make registry-gen` para atualizar `registry.json`
 
-### Accessing Local Services During Development
+### Acessando Servicos Locais Durante o Desenvolvimento
 
 - Frontend: http://localhost:5173/
-- Supabase Dashboard: http://localhost:54323/
-- REST API: http://127.0.0.1:54321
-- Storage (attachments): http://localhost:54323/project/default/storage/buckets/attachments
-- Inbucket (email testing): http://localhost:54324/
+- Painel do Supabase: http://localhost:54323/
+- API REST: http://127.0.0.1:54321
+- Armazenamento (anexos): http://localhost:54323/project/default/storage/buckets/attachments
+- Inbucket (teste de email): http://localhost:54324/
 
-## Important Notes
+## Notas Importantes
 
-- The codebase is intentionally small (~15,000 LOC in `src/components/atomic-crm`) for easy customization
-- Modify files in `src/components/admin` and `src/components/ui` directly - they are meant to be customized
-- Unit tests can be added in the `src/` directory (test files are named `*.test.ts` or `*.test.tsx`)
-- User deletion is not supported to avoid data loss; use account disabling instead
-- Filter operators must be supported by the `supabaseAdapter` when using FakeRest
-- Optional terse output for solo work: the `concise-dev` style ships at `.claude/styles/concise-dev.md`. To enable it just for yourself, copy it into `.claude/output-styles/` (or `~/.claude/output-styles/`) and run `/output-style concise-dev`, or set `"outputStyle": "concise-dev"` in your own `.claude/settings.local.json`. It is not enabled in the committed `settings.json`.
+- O codigo fonte e intencionalmente pequeno (~15.000 linhas em `src/components/commandrm`) para facilitar a personalizacao
+- Modifique arquivos em `src/components/admin` e `src/components/ui` diretamente - eles foram feitos para serem personalizados
+- Testes unitarios podem ser adicionados no diretorio `src/` (os arquivos de teste devem ser nomeados `*.test.ts` ou `*.test.tsx`)
+- A exclusao de usuarios nao e suportada para evitar perda de dados; use a desabilitacao de contas
+- Os operadores de filtro devem ser suportados pelo `supabaseAdapter` ao usar FakeRest
+- Saida concisa opcional para trabalho individual: o estilo `concise-dev` esta disponivel em `.claude/styles/concise-dev.md`. Para ativa-lo apenas para voce, copie-o para `.claude/output-styles/` (ou `~/.claude/output-styles/`) e execute `/output-style concise-dev`, ou defina `"outputStyle": "concise-dev"` no seu proprio `.claude/settings.local.json`. Nao esta ativado no `settings.json` commitado.

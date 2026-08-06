@@ -79,7 +79,7 @@ moving to the next. Never ask multiple domains in one turn.
 
 ### Domain 2 — Entities
 - What objects are managed? Relationships between them?
-- ⚠️ If an entity resembles `contact`, `company`, `deal`, `tag`, `task`, or
+- If an entity resembles `contact`, `company`, `deal`, `tag`, `task`, or
   `note` (already in CommandRM) → propose extending it (`"type": "extend"`)
   rather than recreating it.
 

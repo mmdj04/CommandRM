@@ -1,5 +1,5 @@
-# Pattern Ledger
+# Registro de Padroes
 
-Index of patterns captured by the `documentator` agent (rules, skills, hooks,
-agents, escalations). Empty until the first capture. Artifacts live under
+Indice de padroes capturados pelo agente `documentator` (regras, habilidades, gatilhos,
+agentes, escalacoes). Vazio ate a primeira captura. Artefatos ficam em
 `/home/developer/.claude/local/{rules,skills,hooks,agents}/`.

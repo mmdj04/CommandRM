@@ -30,7 +30,7 @@ Confirm which the user means — most requests mean only #1.
 - **Code defaults (this skill):** edit `defaultConfiguration.ts` + assets. Committed, applies everywhere, and the only way to change the browser-tab title / favicon / PWA icons.
 - **Settings UI** (`/settings` → Branding, [`SettingsPage.tsx`](../../../src/components/commandrm/settings/SettingsPage.tsx)): a logged-in user edits title + uploads logos, **per-browser**, saved to `localStorage` as `CRM.app.configuration` (logos as base64), never committed. Covers only the in-app logo + header title.
 
-> ⚠️ **The store shadows the code.** `useConfigurationContext` returns `{ ...defaultConfiguration, ...storedConfig }` ([`ConfigurationContext.tsx`](../../../src/components/commandrm/root/ConfigurationContext.tsx)). If branding was ever saved via `/settings`, your edits to `defaultConfiguration.ts` won't show in that browser — clear the `CRM.app.configuration` localStorage key. Suspect this whenever a code change has no visual effect.
+> **The store shadows the code.** `useConfigurationContext` returns `{ ...defaultConfiguration, ...storedConfig }` ([`ConfigurationContext.tsx`](../../../src/components/commandrm/root/ConfigurationContext.tsx)). If branding was ever saved via `/settings`, your edits to `defaultConfiguration.ts` won't show in that browser — clear the `CRM.app.configuration` localStorage key. Suspect this whenever a code change has no visual effect.
 
 ## Steps
 

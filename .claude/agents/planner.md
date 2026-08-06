@@ -229,9 +229,9 @@ write a migration is a bug that produces a 7+ min reviewer-arbitration loop. NEV
 - *"The database has the new column"* (no — the DB is touched only at deploy time)
 
 The correct phrasing for the same intent is *schema-file* based:
-- ✅ *"`supabase/schemas/01_tables.sql` adds an `<col> <type>` column"*
-- ✅ *"`supabase/schemas/03_views.sql` exposes the new column in the relevant view"*
-- ✅ *"`supabase/schemas/02_functions.sql` propagates the column in the merge function"*
+- *"`supabase/schemas/01_tables.sql` adds an `<col> <type>` column"*
+- *"`supabase/schemas/03_views.sql` exposes the new column in the relevant view"*
+- *"`supabase/schemas/02_functions.sql` propagates the column in the merge function"*
 
 If you catch yourself writing "migration" anywhere in an AC, delete the line and
 rewrite it against `supabase/schemas/`.

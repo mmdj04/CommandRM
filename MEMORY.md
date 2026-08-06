@@ -1,12 +1,12 @@
-# MEMORY
+# MEMORIA
 
-Durable Atomic CRM knowledge. One sentence per bullet, freshest first. Maintained by the `documentator` agent — see [.claude/agents/documentator.md](.claude/agents/documentator.md).
+Conhecimento duradouro do CommandRM. Uma frase por item, mais recente primeiro. Mantido pelo agente `documentator` — veja [.claude/agents/documentator.md](.claude/agents/documentator.md).
 
-## Business Knowledge
+## Conhecimento de Negocios
 
-- Core resources: contacts, companies, deals (Kanban pipeline), tasks, notes, tags, and sales (team members).
-- Domain options (genders, sectors, deal stages/categories, note statuses, task types) are `<CRM>` props in `src/App.tsx`, not hardcoded.
-- Sales users sync with Supabase `auth.users` via triggers; deletion is unsupported — accounts are disabled instead.
-- Aggregated reads use database views (`contacts_summary`, `companies_summary`), which FakeRest emulates in the frontend.
-- Two interchangeable data providers: Supabase (production) and FakeRest (in-browser demo, resets on reload).
-- Filters use `ra-data-postgrest` syntax (`field_name@operator`); operators must be supported by the FakeRest `supabaseAdapter`.
+- Recursos principais: contatos, empresas, oportunidades (pipeline Kanban), tarefas, notas, etiquetas e vendedores (membros da equipe).
+- Opcoes de dominio (generos, setores, estagios/categorias de oportunidades, status de notas, tipos de tarefa) sao props do `<CRM>` em `src/App.tsx`, nao sao hardcoded.
+- Vendedores sao sincronizados com o `auth.users` do Supabase via gatilhos; exclusao nao e suportada — contas sao desabilitadas.
+- Leituras consolidadas usam visualizacoes do banco de dados (`contacts_summary`, `companies_summary`), que o FakeRest emula no frontend.
+- Dois provedores de dados intercambiaveis: Supabase (producao) e FakeRest (demonstracao no navegador, reinicia ao recarregar).
+- Filtros usam sintaxe `ra-data-postgrest` (`nome_campo@operador`); operadores devem ser suportados pelo `supabaseAdapter` do FakeRest.

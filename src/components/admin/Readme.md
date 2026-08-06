@@ -1,40 +1,39 @@
-# Admin Components
+# Componentes Admin
 
-The components in this directory come from [Shadcn Admin Kit](https://marmelab.com/shadcn-admin-kit/). They are application building blocks providing solution to usual single-page apps needs, including:
+Os componentes neste diretorio vêm do [Shadcn Admin Kit](https://marmelab.com/shadcn-admin-kit/). Sao blocos de construcao de aplicacoes que fornecem solucoes para necessidades comuns de aplicacoes de pagina unica, incluindo:
 
-- data fetching,
-- lists and data tables,
-- forms & validation,
-- authentication,
-- search & filtering,
+- busca de dados,
+- listas e tabelas de dados,
+- formularios e validacao,
+- autenticacao,
+- pesquisa e filtragem,
 - i18n,
-- theming,
-- loading and error management.
-- rapid CRUD generation,
-- ralationship management,
-- roles & permissions,
-- optimistic UI,
-- undo functionality,
-- bulk actions,
-- user preferences,
-- notifications,
-- and more.
+- temas,
+- gerenciamento de carregamento e erros.
+- geracao rapida de CRUD,
+- gerenciamento de relacionamentos,
+- funcoes e permissoes,
+- UI otimista,
+- funcionalidade de desfazer,
+- acoes em lote,
+- preferencias do usuario,
+- notificacoes,
+- e mais.
 
-These components are built on top of [TanStack Query](https://tanstack.com/query/latest), [React Hook Form](https://react-hook-form.com/), [React Router](https://reactrouter.com/), [ra-core](https://marmelab.com/ra-core/), [Radix UI](https://www.radix-ui.com/) and [Shadcn UI](https://ui.shadcn.com/).
+Esses componentes sao construidos sobre [TanStack Query](https://tanstack.com/query/latest), [React Hook Form](https://react-hook-form.com/), [React Router](https://reactrouter.com/), [ra-core](https://marmelab.com/ra-core/), [Radix UI](https://www.radix-ui.com/) e [Shadcn UI](https://ui.shadcn.com/).
 
-## Documentation
+## Documentacao
 
-You can find the documentation for these components on the [Shadcn Admin Kit website](https://marmelab.com/shadcn-admin-kit/docs).
+Voce pode encontrar a documentacao desses componentes no [site do Shadcn Admin Kit](https://marmelab.com/shadcn-admin-kit/docs).
 
-## Customization
+## Personalizacao
 
-In CommandRM, these components are sometimes slightly modified to fit the look and feel of the application. You can customize them further by editing the source files in this directory.
+No CommandRM, esses componentes as vezes sao ligeiramente modificados para se adequar a aparencia e sensacao da aplicacao. Voce pode personaliza-los ainda mais editando os arquivos de codigo fonte neste diretorio.
 
-## Updates
+## Atualizacoes
 
-Shadcn Admin Kit components are actively maintained and updated. To update the components in CommandRM, type the following command:
+Os componentes do Shadcn Admin Kit sao ativamente mantidos e atualizados. Para atualizar os componentes no CommandRM, digite o seguinte comando:
 
 ```
 npx shadcn@latest add -o https://marmelab.com/shadcn-admin-kit/r/admin.json
 ```
-

@@ -28,11 +28,11 @@ Each session owns an integration branch `session/<SESSION_SHORT_ID>` (forked fro
 
 | Path prefix | Read | Write/Edit | Bash cwd |
 |---|---|---|---|
-| `<WORKTREE_PATH>/**` (i.e. `<WORKTREE_BASE>/TASK-XXX/`) | ✅ | ✅ | ✅ |
-| `${TICKETS_DIR}/TASK-XXX.json` (per-session folder passed in your prompt) | ✅ (ticket source of truth) | ⚠️ merger writes the `status` field — no other writes | — |
-| `${TICKETS_DIR}/reviews/<TASK-XXX>-quality-reviewer` (`reviews/` sibling of the ticket file) | ✅ | ⚠️ quality-reviewer ONLY, and ONLY its own ticket's flag: `touch` on APPROVED / `rm -f` on REJECTED (records its verdict; see quality-reviewer.md). No other agent, no other file under `reviews/`. | — |
-| `$REPO/adr/**` | ✅ (learn from past structural decisions) | ❌ (developer writes ADRs inside the worktree at `<WORKTREE_PATH>/adr/`; the merger ships them to `$REPO/adr/`) | — |
-| `~/.claude/**` (`$CLAUDE_CONFIG_DIR`) | ✅ (skills, rules) | ❌ | — |
+| `<WORKTREE_PATH>/**` (i.e. `<WORKTREE_BASE>/TASK-XXX/`) | | | |
+| `${TICKETS_DIR}/TASK-XXX.json` (per-session folder passed in your prompt) | (ticket source of truth) | merger writes the `status` field — no other writes | — |
+| `${TICKETS_DIR}/reviews/<TASK-XXX>-quality-reviewer` (`reviews/` sibling of the ticket file) | | quality-reviewer ONLY, and ONLY its own ticket's flag: `touch` on APPROVED / `rm -f` on REJECTED (records its verdict; see quality-reviewer.md). No other agent, no other file under `reviews/`. | — |
+| `$REPO/adr/**` | (learn from past structural decisions) | (developer writes ADRs inside the worktree at `<WORKTREE_PATH>/adr/`; the merger ships them to `$REPO/adr/`) | — |
+| `~/.claude/**` (`$CLAUDE_CONFIG_DIR`) | (skills, rules) | | — |
 
 Everything else under `$REPO/` — `$REPO/src/`, `$REPO/e2e/`, `$REPO/supabase/`, `$REPO/package.json`, `$REPO/*.ts`, `$REPO/*.json` — is **off-limits**. If you need information from these, read the copy inside your worktree.
 
@@ -53,22 +53,22 @@ cd <WORKTREE_PATH> && <your command>
 ```
 Read("$REPO/src/components/commandrm/types.ts")
 ```
-❌ The worktree has this file at `<WORKTREE_PATH>/src/components/commandrm/types.ts`. Read there instead.
+The worktree has this file at `<WORKTREE_PATH>/src/components/commandrm/types.ts`. Read there instead.
 
 ```
 Bash("npm run typecheck")
 ```
-❌ Runs in `$REPO` (default cwd), not your worktree. Use `Bash("cd <WORKTREE_PATH> && npm run typecheck")`.
+Runs in `$REPO` (default cwd), not your worktree. Use `Bash("cd <WORKTREE_PATH> && npm run typecheck")`.
 
 ```
 Edit("$REPO/src/App.tsx", ...)
 ```
-❌ Never edit inside `$REPO/`. Always your worktree. If `App.tsx` genuinely belongs to the ticket, edit `<WORKTREE_PATH>/src/App.tsx`.
+Never edit inside `$REPO/`. Always your worktree. If `App.tsx` genuinely belongs to the ticket, edit `<WORKTREE_PATH>/src/App.tsx`.
 
 ```
 Bash("npm run prettier:apply")
 ```
-❌ No `cd` prefix → runs in `$REPO`, reformats the base branch. Use `Bash("cd <WORKTREE_PATH> && npm run prettier:apply")`.
+No `cd` prefix → runs in `$REPO`, reformats the base branch. Use `Bash("cd <WORKTREE_PATH> && npm run prettier:apply")`.
 
 ## When you genuinely need `$REPO` state
 

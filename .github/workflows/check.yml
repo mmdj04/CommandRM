@@ -1,4 +1,4 @@
-name: ✅ Check
+name: Check
 on:
     push:
         branches:
@@ -20,24 +20,24 @@ permissions:
 
 jobs:
     lint:
-        name: 🔬 ESLint
+        name: ESLint
         runs-on: ubuntu-latest
         timeout-minutes: 10
         if: ${{ !github.event.pull_request.draft || github.event_name == 'push' }}
         steps:
-            - name: 📥 Checkout repo
+            - name: Checkout repo
               uses: actions/checkout@v4
 
-            - name: ⚙️ Setup node
+            - name: Setup node
               uses: actions/setup-node@v4
               with:
                   node-version: 22
                   cache: npm
 
-            - name: 📥 Download deps
+            - name: Download deps
               run: npm ci
 
-            - name: 🔬 Lint
+            - name: Lint
               uses: wearerequired/lint-action@v2
               with:
                   eslint: true
@@ -47,60 +47,60 @@ jobs:
 
 
     typecheck:
-        name: 🏷️ Typecheck
+        name: Typecheck
         timeout-minutes: 10
         runs-on: ubuntu-latest
         if: ${{ !github.event.pull_request.draft || github.event_name == 'push' }}
         steps:
-            - name: 📥 Checkout repo
+            - name: Checkout repo
               uses: actions/checkout@v4
 
-            - name: ⚙️ Setup node
+            - name: Setup node
               uses: actions/setup-node@v4
               with:
                   node-version: 22
                   cache: npm
 
-            - name: 📥 Download deps
+            - name: Download deps
               run: npm ci
 
-            - name: 🏷️ Typecheck
+            - name: Typecheck
               run: npm run typecheck
               
     test-app:
-        name: 🔎 Test
+        name:  Test
         runs-on: ubuntu-latest
         timeout-minutes: 10
         if: ${{ !github.event.pull_request.draft || github.event_name == 'push' }}
         steps:
-            - name: 📥 Checkout repo
+            - name: Checkout repo
               uses: actions/checkout@v4
 
-            - name: ⚙️ Setup node
+            - name: Setup node
               uses: actions/setup-node@v4
               with:
                   node-version: 22
                   cache: npm
 
-            - name: 📥 Download deps
+            - name: Download deps
               run: npm ci
 
-            - name: 🎭 Install Playwright browsers
+            - name:  Install Playwright browsers
               run: npx playwright install chromium-headless-shell 1>/dev/null
 
-            - name: 🔎 Unit Tests on App
+            - name:  Unit Tests on App
               run: CI=1 npm run test:unit:app -- --run
-            - name: 🔎 Unit Tests on Supabase functions
+            - name:  Unit Tests on Supabase functions
               run: CI=1 npm run test:unit:functions -- --run
 
     e2e-test:
       timeout-minutes: 10
       runs-on: ubuntu-latest
       steps:
-      - name: 📥 Checkout repo
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup node
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
             node-version: 22
@@ -115,22 +115,22 @@ jobs:
         run: make test-e2e-ci
 
     build:
-        name: 🔨 Build
+        name:  Build
         timeout-minutes: 10
         runs-on: ubuntu-latest
         if: ${{ !github.event.pull_request.draft || github.event_name == 'push' }}
         steps:
-            - name: 📥 Checkout repo
+            - name: Checkout repo
               uses: actions/checkout@v4
 
-            - name: ⚙️ Setup node
+            - name: Setup node
               uses: actions/setup-node@v4
               with:
                   node-version: 22
                   cache: npm
 
-            - name: 📥 Download deps
+            - name: Download deps
               run: npm ci
 
-            - name: 🔨 Build
+            - name:  Build
               run: npm run build
