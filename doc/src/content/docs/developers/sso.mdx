@@ -1,9 +1,9 @@
 ---
 title: Single Sign-On (SSO) with SAML
-description: This document explains how to configure SSO for Atomic CRM.
+description: This document explains how to configure SSO for CommandRM.
 ---
 
-Atomic CRM supports SSO (Single Sign-On) authentication through SAML 2.0. This allows your users to authenticate using their existing credentials from an identity provider, such as Google Workspace, Okta, or Microsoft Azure AD.
+CommandRM supports SSO (Single Sign-On) authentication through SAML 2.0. This allows your users to authenticate using their existing credentials from an identity provider, such as Google Workspace, Okta, or Microsoft Azure AD.
 
 ## Setup SSO with Google Workspace
 
@@ -27,7 +27,7 @@ In _Authentication > Sign in / Providers_, enable _SAML 2.0_:
 
 3. **Fill out app details**
 
-   The information you enter here is for visibility into your Google Workspace. You can choose any values you like. _Atomic CRM_ as a name works well for most use cases. Optionally enter a description and a logo.
+   The information you enter here is for visibility into your Google Workspace. You can choose any values you like. _CommandRM_ as a name works well for most use cases. Optionally enter a description and a logo.
 
    ![New app details screen](../../images/sso-google-3.png)
 
@@ -53,7 +53,7 @@ In _Authentication > Sign in / Providers_, enable _SAML 2.0_:
 
 6. **Configure attribute mapping**
 
-   To properly map the identity details to the sales fields in Atomic CRM, add the following mappings:
+   To properly map the identity details to the sales fields in CommandRM, add the following mappings:
 
    | Google Directory attributes | App attributes |
    |-----------------------------|----------------|
@@ -65,7 +65,7 @@ In _Authentication > Sign in / Providers_, enable _SAML 2.0_:
 
 7. **Configure user access**
    
-   You can configure which Google Workspace user accounts will get access to Atomic CRM. This is important if you wish to limit access to your software engineering teams.
+   You can configure which Google Workspace user accounts will get access to CommandRM. This is important if you wish to limit access to your software engineering teams.
 
    You can configure this access by clicking on the _User access_ card (or down-arrow). Follow the instructions on screen.
    ![App details screen](../../images/sso-google-7.png)
@@ -117,4 +117,4 @@ The login page will now show a button to log in with Google Workspace SSO.
 
 ![Login page with Google Workspace SSO](../../images/sso-google.png)
 
-When users click on this button, they will be redirected to the Google login page. After they log in, they will be redirected back to Atomic CRM and logged in automatically.
+When users click on this button, they will be redirected to the Google login page. After they log in, they will be redirected back to CommandRM and logged in automatically.

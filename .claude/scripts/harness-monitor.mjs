@@ -34,7 +34,7 @@ const REPO = (() => {
 
 const TMP_ROOT = process.env.CRM_TMP_ROOT || "/tmp";
 const sanitize = (p) => String(p).replace(/\//g, "_");
-const WORKTREE_ROOT = join(TMP_ROOT, sanitize(REPO)); // /tmp/_workspaces_atomic-crm
+const WORKTREE_ROOT = join(TMP_ROOT, sanitize(REPO)); // /tmp/_workspaces_commandrm
 const CLAUDE_PROJ = join(
   homedir(),
   ".claude",

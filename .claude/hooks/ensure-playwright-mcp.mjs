@@ -40,7 +40,7 @@ if (existsSync(mcpCli)) {
 
 // A global lock so parallel sessions don't launch duplicate installs. A fresh lock
 // (< 30 min) means an install is already running; just warn, don't relaunch.
-const lock = "/tmp/atomic-crm-playwright-mcp-install.lock";
+const lock = "/tmp/commandrm-playwright-mcp-install.lock";
 let installing = false;
 try {
   if (

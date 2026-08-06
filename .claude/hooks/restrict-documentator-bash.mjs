@@ -54,9 +54,9 @@ const WHITELIST = [
   /^wc -l( |$)/,
   /^git -C [^ ]+ add MEMORY\.md *$/,
   // Author identity is pinned. Accept the neutral harness.local and the
-  // deprecated atomic-crm.local (kept for one release).
-  /^git -C [^ ]+ -c user\.name=['"]?Documentator['"]? -c user\.email=['"]?documentator@(harness|atomic-crm)\.local['"]? commit -m /,
-  /^git -C [^ ]+ -c user\.email=['"]?documentator@(harness|atomic-crm)\.local['"]? -c user\.name=['"]?Documentator['"]? commit -m /,
+  // deprecated commandrm.local (kept for one release).
+  /^git -C [^ ]+ -c user\.name=['"]?Documentator['"]? -c user\.email=['"]?documentator@(harness|commandrm)\.local['"]? commit -m /,
+  /^git -C [^ ]+ -c user\.email=['"]?documentator@(harness|commandrm)\.local['"]? -c user\.name=['"]?Documentator['"]? commit -m /,
 ];
 const isWhitelisted = (cmd) => WHITELIST.some((pattern) => pattern.test(cmd));
 

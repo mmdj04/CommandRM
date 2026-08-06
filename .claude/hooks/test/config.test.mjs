@@ -149,7 +149,7 @@ describe("config loader", () => {
   test("the committed harness.config.json is valid", () => {
     clearConfigCache();
     const cfg = loadConfig(REPO_ROOT);
-    expect(cfg.name).toBe("atomic-crm");
+    expect(cfg.name).toBe("commandrm");
     expect(isDeployEnabled(cfg)).toBe(true);
     expect(roleModel(cfg, "quality-reviewer")).toBe("opus");
     expect(pipelineRoles(cfg)).toContain("test-writer");

@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/atomic-crm/doc/",
+  base: "/commandrm/doc/",
   vite: {
     plugins: [tailwindcss()],
   },
@@ -14,7 +14,7 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: "Atomic CRM",
+      title: "CommandRM",
       favicon: "./favicon.svg",
       customCss: ["./src/styles/global.css"],
       logo: {
@@ -26,7 +26,7 @@ export default defineConfig({
           tag: "meta",
           attrs: {
             property: "og:title",
-            content: "Atomic CRM Documentation",
+            content: "CommandRM Documentation",
           },
         },
         {
@@ -47,7 +47,7 @@ export default defineConfig({
           tag: "meta",
           attrs: {
             property: "og:url",
-            content: "https://marmelab.com/atomic-crm/doc",
+            content: "https://marmelab.com/commandrm/doc",
           },
         },
         {
@@ -55,7 +55,7 @@ export default defineConfig({
           attrs: {
             property: "og:image",
             content:
-              "https://marmelab.com/atomic-crm/img/atomic-crm-banner.png",
+              "https://marmelab.com/commandrm/img/commandrm-banner.png",
           },
         },
         // add Umami analytics script tag.
@@ -73,7 +73,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/marmelab/atomic-crm",
+          href: "https://github.com/marmelab/commandrm",
         },
       ],
       sidebar: [
@@ -99,7 +99,7 @@ export default defineConfig({
         },
         {
           label: "What's New",
-          link: "https://github.com/marmelab/atomic-crm/releases",
+          link: "https://github.com/marmelab/commandrm/releases",
           attrs: { target: "_blank" },
         },
       ],

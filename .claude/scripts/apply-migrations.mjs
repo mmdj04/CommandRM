@@ -19,7 +19,7 @@
 //    After applying, the PostgREST schema cache is reloaded so
 //    new columns/tables are visible immediately.
 //
-//  Portability (works on both crm-builder and a bare AtomicCRM checkout):
+//  Portability (works on both crm-builder and a bare CommandRM checkout):
 //    APP_DIR  — repo root. Defaults to $CLAUDE_PROJECT_DIR, then /app.
 //    Migrations are always applied regardless of the app's data mode:
 //    crm-builder runs in demo (FakeRest) by default at migration time,

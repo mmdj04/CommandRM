@@ -1,10 +1,10 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-  "name": "Atomic CRM",
+  "name": "CommandRM",
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "workspaceFolder": "/workspaces/atomic-crm",
+  "workspaceFolder": "/workspaces/commandrm",
   "workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind,consistency=cached",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "remoteUser": "node",

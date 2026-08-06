@@ -57,7 +57,7 @@ describe("block-docker-containers hook", () => {
   describe("Supabase containers → allowed", () => {
     const allowed = [
       ["", "docker run supabase/postgres:15"],
-      ["", "docker start supabase_db_atomic-crm"],
+      ["", "docker start supabase_db_commandrm"],
       ["", "docker compose -f supabase/docker-compose.yml up -d"],
       ["", "npx supabase start"],
       ["", "make start"],

@@ -1,5 +1,5 @@
 {
-  "name": "atomic-crm",
+  "name": "commandrm",
   "layout": {
     "src": "src",
     "e2e": "e2e",

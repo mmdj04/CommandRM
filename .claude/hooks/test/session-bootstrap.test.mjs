@@ -55,7 +55,7 @@ describe("session-bootstrap", () => {
   test("stays out of the way when a managed launcher owns the session", () => {
     const r = run(
       { session_id: SESSION_ID },
-      { CHAT_SESSION_DIR: "/tmp/atomic-crm-harness/managed" },
+      { CHAT_SESSION_DIR: "/tmp/commandrm-harness/managed" },
     );
     expect(r.status).toBe(0);
     expect(r.stdout).not.toContain("<session_dir>");

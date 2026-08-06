@@ -46,14 +46,14 @@ Bash tool invocations are **stateless shells**. `cd <WORKTREE_PATH>` in one call
 cd <WORKTREE_PATH> && <your command>
 ```
 
-`WORKTREE_PATH` is provided in your spawn prompt (e.g. `/tmp/_home_user_code_atomic-crm/46bc14c5-.../TASK-XXX`).
+`WORKTREE_PATH` is provided in your spawn prompt (e.g. `/tmp/_home_user_code_commandrm/46bc14c5-.../TASK-XXX`).
 
 ## Violation examples
 
 ```
-Read("$REPO/src/components/atomic-crm/types.ts")
+Read("$REPO/src/components/commandrm/types.ts")
 ```
-❌ The worktree has this file at `<WORKTREE_PATH>/src/components/atomic-crm/types.ts`. Read there instead.
+❌ The worktree has this file at `<WORKTREE_PATH>/src/components/commandrm/types.ts`. Read there instead.
 
 ```
 Bash("npm run typecheck")

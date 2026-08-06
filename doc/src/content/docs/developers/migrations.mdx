@@ -1,9 +1,9 @@
 ---
 title: Migrations
-description: This document explains how to create and manage database migrations in Atomic CRM.
+description: This document explains how to create and manage database migrations in CommandRM.
 ---
 
-Atomic CRM uses [declarative database schemas](https://supabase.com/docs/guides/local-development/declarative-database-schemas) to manage its database structure. The schema is defined in `.sql` files under `supabase/schemas/`, and migrations are auto-generated from those files.
+CommandRM uses [declarative database schemas](https://supabase.com/docs/guides/local-development/declarative-database-schemas) to manage its database structure. The schema is defined in `.sql` files under `supabase/schemas/`, and migrations are auto-generated from those files.
 
 ## Schema Files
 
@@ -110,4 +110,4 @@ Then copy the function's exact format from the dump output into `02_functions.sq
 
 From the frontend UI, users can import contacts and companies via a csv file.
 
-If you change the data structure for a contact, don't forget to modify the sample CSV file located at [`src/components/atomic-crm/contacts/contacts_export.csv`](https://github.com/marmelab/atomic-crm/blob/main/src/components/atomic-crm/contacts/contacts_export.csv). You'll also need to modify the import function found in [`src/components/atomic-crm/contacts/useContactImport.tsx`](https://github.com/marmelab/atomic-crm/blob/main/src/components/atomic-crm/contacts/useContactImport.tsx).
+If you change the data structure for a contact, don't forget to modify the sample CSV file located at [`src/components/commandrm/contacts/contacts_export.csv`](https://github.com/marmelab/commandrm/blob/main/src/components/commandrm/contacts/contacts_export.csv). You'll also need to modify the import function found in [`src/components/commandrm/contacts/useContactImport.tsx`](https://github.com/marmelab/commandrm/blob/main/src/components/commandrm/contacts/useContactImport.tsx).

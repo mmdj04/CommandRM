@@ -1,6 +1,6 @@
 ---
 title: Configuration
-description: This document explains how to customize the Atomic CRM application.
+description: This document explains how to customize the CommandRM application.
 ---
 
 Admin users can already customize the application domain-specific data (e.g., deal stages, note statuses, etc.) via [the Settings page](../user//settings). However, developers can go further and define the defaults for these data by configuring the `<CRM>` component in `src/App.tsx`.
@@ -9,10 +9,10 @@ Other customizations require changes to the source code.
 
 ## The `<CRM>` component
 
-The entry point of the frontend application is the `src/App.tsx` file. By default, this file simply renders the `<CRM>` component, which is the root component of Atomic CRM.
+The entry point of the frontend application is the `src/App.tsx` file. By default, this file simply renders the `<CRM>` component, which is the root component of CommandRM.
 
 ```tsx
-import { CRM } from '@/components/atomic-crm/root/CRM';
+import { CRM } from '@/components/commandrm/root/CRM';
 
 const App = () => <CRM />;
 
@@ -24,7 +24,7 @@ export default App;
 For instance, the following code snippet shows how to customize the CRM application domain-specific data.
 
 ```tsx
-import { CRM } from '@/components/atomic-crm/root/CRM';
+import { CRM } from '@/components/commandrm/root/CRM';
 
 const App = () => (
     <CRM
@@ -78,7 +78,7 @@ export default App;
 
 ## Languages (i18n)
 
-Atomic CRM language configuration is managed in `src/components/atomic-crm/providers/commons/i18nProvider.ts`.
+CommandRM language configuration is managed in `src/components/commandrm/providers/commons/i18nProvider.ts`.
 
 By default, this repository ships with two locales:
 
@@ -96,10 +96,10 @@ The language switcher appears in the Profile page when more than one locale is c
 ### Adding a New Language
 
 1. Import a translation package for the base messages (Shadcn Admin Kit comes with [35 languages integrations](https://marmelab.com/ra-core/translationlocales/))
-2. Create a message catalog for the CRM messages. Use the English messages catalog as a base (`src/components/atomic-crm/providers/commons/englishCrmMessages.ts`).
+2. Create a message catalog for the CRM messages. Use the English messages catalog as a base (`src/components/commandrm/providers/commons/englishCrmMessages.ts`).
 3. Merge these two translation files using the `mergeTranslations` utility
-4. Edit `src/components/atomic-crm/providers/commons/i18nProvider.ts` and add a new locale with the merged messages to the provider.
-5. Import the new locale for date formatting in `src/components/atomic-crm/misc/RelativeDate.tsx`.
+4. Edit `src/components/commandrm/providers/commons/i18nProvider.ts` and add a new locale with the merged messages to the provider.
+5. Import the new locale for date formatting in `src/components/commandrm/misc/RelativeDate.tsx`.
 6. Start the app, switch locale from the Profile page, and verify that the new locale is working as expected.
 
 ### Type-Checking Message Catalogs
@@ -137,18 +137,18 @@ If an official package does not exist for a given integration (for example `ra-s
 
 ## Disabling Telemetry
 
-In production, atomic-crm applications send an anonymous request on mount to a telemetry server operated by Marmelab. You can see this request by looking at the Network tab of your browser DevTools:
+In production, commandrm applications send an anonymous request on mount to a telemetry server operated by Marmelab. You can see this request by looking at the Network tab of your browser DevTools:
 
 ```
-https://atomic-crm-telemetry.marmelab.com/atomic-crm-telemetry
+https://commandrm-telemetry.marmelab.com/commandrm-telemetry
 ```
 
-The only data sent to the telemetry server is the admin domain (e.g. “example.com”) - no personal data is ever sent, and no cookie is included in the response. The atomic-crm team uses these domains to track the usage of the framework.
+The only data sent to the telemetry server is the admin domain (e.g. “example.com”) - no personal data is ever sent, and no cookie is included in the response. The commandrm team uses these domains to track the usage of the framework.
 
 You can opt out of telemetry by simply adding `disableTelemetry` to the `<CRM>` component:
 
 ```tsx
-import { CRM } from '@/components/atomic-crm/root/CRM';
+import { CRM } from '@/components/commandrm/root/CRM';
 
 const App = () => <CRM disableTelemetry />;
 

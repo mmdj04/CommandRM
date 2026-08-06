@@ -20,7 +20,7 @@
 
 ### Commits do CommandRM
 
-* Initial commit: Atomic CRM base
+* Initial commit: CommandRM base
 * Add Portuguese (Brazil) localization
 * Traduz login page para PT-BR
 * Fix forgot password text

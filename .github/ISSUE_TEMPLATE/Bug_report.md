@@ -28,7 +28,7 @@ insert short code snippets here
 
 **Environment**
 
-* atomic-crm version:
+* commandrm version:
 * Last version that did not exhibit the issue (if applicable):
 * React version:
 * Browser:

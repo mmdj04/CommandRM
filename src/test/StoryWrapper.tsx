@@ -4,12 +4,12 @@ import { useEffect, useMemo, type ReactNode } from "react";
 import { MemoryRouter } from "react-router";
 import cloneDeep from "lodash/cloneDeep";
 import { Notification } from "@/components/admin/notification";
-import { createDataProvider } from "@/components/atomic-crm/providers/fakerest";
-import { DEFAULT_USER } from "@/components/atomic-crm/providers/fakerest/authProvider";
-import type { Db } from "@/components/atomic-crm/providers/fakerest/dataGenerator/types";
-import type { Contact, Sale } from "@/components/atomic-crm/types";
-import { CRM } from "@/components/atomic-crm/root/CRM";
-import { testI18nProvider } from "@/components/atomic-crm/providers/commons/i18nProvider";
+import { createDataProvider } from "@/components/commandrm/providers/fakerest";
+import { DEFAULT_USER } from "@/components/commandrm/providers/fakerest/authProvider";
+import type { Db } from "@/components/commandrm/providers/fakerest/dataGenerator/types";
+import type { Contact, Sale } from "@/components/commandrm/types";
+import { CRM } from "@/components/commandrm/root/CRM";
+import { testI18nProvider } from "@/components/commandrm/providers/commons/i18nProvider";
 
 export const createTestAuthProvider = (): AuthProvider => ({
   canAccess: async () => true,
