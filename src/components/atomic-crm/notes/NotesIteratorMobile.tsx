@@ -55,7 +55,7 @@ export const NotesIteratorMobile = ({
       <div className="p-4">
         <div className="text-center text-muted-foreground mb-4">
           {translate("resources.notes.list.error_loading", {
-            _: "Error loading notes",
+            _: "Erro ao carregar notas",
           })}
         </div>
         <div className="text-center mt-2">

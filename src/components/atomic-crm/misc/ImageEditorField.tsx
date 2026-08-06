@@ -63,7 +63,7 @@ const ImageEditorField = (props: ImageEditorFieldProps) => {
               className="cursor-pointer object-cover"
               style={{ width, height }}
               alt={translate("crm.image_editor.editable_content", {
-                _: "Editable content",
+                _: "Conteúdo editável",
               })}
             />
           )}
@@ -157,7 +157,7 @@ const ImageEditorDialog = (props: ImageEditorDialogProps) => {
         <DialogHeader>
           <DialogTitle>
             {translate("crm.image_editor.title", {
-              _: "Upload and resize image",
+              _: "Enviar e redimensionar imagem",
             })}
           </DialogTitle>
         </DialogHeader>
@@ -169,7 +169,7 @@ const ImageEditorDialog = (props: ImageEditorDialogProps) => {
             <input {...getInputProps()} />
             <p className="text-gray-600">
               {translate("crm.image_editor.drop_hint", {
-                _: "Drop a file to upload, or click to select it.",
+                _: "Arraste um arquivo para enviar ou clique para selecioná-lo.",
               })}
             </p>
           </div>

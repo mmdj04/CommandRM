@@ -51,7 +51,7 @@ export const ProfilePage = () => {
       if (!identity) {
         throw new Error(
           translate("crm.profile.record_not_found", {
-            _: "Record not found",
+            _: "Registro não encontrado",
           }),
         );
       }
@@ -63,7 +63,7 @@ export const ProfilePage = () => {
       setEditMode(false);
       notify("crm.profile.updated", {
         messageArgs: {
-          _: "Your profile has been updated",
+          _: "Seu perfil foi atualizado",
         },
       });
     },
@@ -71,7 +71,7 @@ export const ProfilePage = () => {
       notify("crm.profile.update_error", {
         type: "error",
         messageArgs: {
-          _: "An error occurred. Please try again",
+          _: "Ocorreu um erro. Por favor, tente novamente",
         },
       });
     },
@@ -112,7 +112,7 @@ const ProfileForm = ({
       if (!identity) {
         throw new Error(
           translate("crm.profile.record_not_found", {
-            _: "Record not found",
+            _: "Registro não encontrado",
           }),
         );
       }
@@ -121,7 +121,7 @@ const ProfileForm = ({
     onSuccess: () => {
       notify("crm.profile.password_reset_sent", {
         messageArgs: {
-          _: "A reset password email has been sent to your email address",
+          _: "Um email de redefinição de senha foi enviado para o seu endereço de email",
         },
       });
     },
@@ -138,7 +138,7 @@ const ProfileForm = ({
       if (!record) {
         throw new Error(
           translate("crm.profile.record_not_found", {
-            _: "Record not found",
+            _: "Registro não encontrado",
           }),
         );
       }
@@ -148,7 +148,7 @@ const ProfileForm = ({
       refetch();
       notify("crm.profile.updated", {
         messageArgs: {
-          _: "Your profile has been updated",
+          _: "Seu perfil foi atualizado",
         },
       });
     },
@@ -156,7 +156,7 @@ const ProfileForm = ({
       notify("crm.profile.update_error", {
         type: "error",
         messageArgs: {
-          _: "An error occurred. Please try again.",
+          _: "Ocorreu um erro. Por favor, tente novamente.",
         },
       });
     },
@@ -253,7 +253,7 @@ const ProfileForm = ({
           <div className="space-y-4 justify-between">
             <h2 className="text-xl font-semibold text-muted-foreground">
               {translate("crm.profile.mcp.title", {
-                _: "MCP Server",
+                _: "Servidor MCP",
               })}
             </h2>
             <p className="text-sm text-muted-foreground">

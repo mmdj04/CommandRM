@@ -57,7 +57,7 @@ export const NoteCreateSheet = ({
     });
     notify("resources.notes.added", {
       messageArgs: {
-        _: "Note added",
+        _: "Nota adicionada",
       },
     });
     redirect("show", "contacts", referenceRecordId);

@@ -48,7 +48,7 @@ export const DashboardStepper = ({
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-lg font-bold">
                 {translate("crm.dashboard.stepper.whats_next", {
-                  _: "What's next?",
+                  _: "O que vem depois?",
                 })}
               </h3>
               <div className="w-[150px]">
@@ -66,7 +66,7 @@ export const DashboardStepper = ({
                 <CheckCircle className="text-green-600 w-5 h-5 shrink-0" />
                 <h4 className="font-bold">
                   {translate("crm.dashboard.stepper.install", {
-                    _: "Install Atomic CRM",
+                    _: "Instalar Atomic CRM",
                   })}
                 </h4>
               </div>
@@ -80,7 +80,7 @@ export const DashboardStepper = ({
                 <div className="flex flex-col gap-4">
                   <h4 className="font-bold">
                     {translate("resources.contacts.action.add_first", {
-                      _: "Add your first contact",
+                      _: "Adicione seu primeiro contato",
                     })}
                   </h4>
 
@@ -93,7 +93,7 @@ export const DashboardStepper = ({
                       >
                         <Plus className="h-4 w-4" />
                         {translate("resources.contacts.action.new", {
-                          _: "New Contact",
+                          _: "Novo Contato",
                         })}
                       </Button>
                     ) : (
@@ -113,12 +113,12 @@ export const DashboardStepper = ({
                 <div className="flex flex-col gap-4">
                   <h4 className="font-bold">
                     {translate("resources.notes.action.add_first", {
-                      _: "Add your first note",
+                      _: "Adicione sua primeira nota",
                     })}
                   </h4>
                   <p>
                     {translate("resources.notes.stepper.hint", {
-                      _: "Go to a contact page and add a note",
+                      _: "Acesse a página de um contato e adicione uma nota",
                     })}
                   </p>
                   {isMobile ? (
@@ -129,14 +129,14 @@ export const DashboardStepper = ({
                     >
                       <Plus className="h-4 w-4" />
                       {translate("resources.notes.action.add", {
-                        _: "Add note",
+                        _: "Adicionar nota",
                       })}
                     </Button>
                   ) : (
                     <Button asChild disabled={step < 2} className="w-fit">
                       <Link role="button" to={`/contacts/${contactId}/show`}>
                         {translate("resources.notes.action.add", {
-                          _: "Add note",
+                          _: "Adicionar nota",
                         })}
                       </Link>
                     </Button>

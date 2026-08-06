@@ -16,7 +16,7 @@ export function DashboardActivityLog() {
         </div>
         <h2 className="text-xl font-semibold text-muted-foreground">
           {translate("crm.dashboard.latest_activity", {
-            _: "Latest Activity",
+            _: "Última Atividade",
           })}
         </h2>
       </div>

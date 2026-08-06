@@ -22,7 +22,7 @@ export const ListNoResults = (props: ListNoResultsProps) => {
             {translate("ra.navigation.no_filtered_results", {
               resource,
               name: getResourceLabel(resource, 0),
-              _: "No results found with the current filters.",
+              _: "Nenhum resultado encontrado com os filtros atuais.",
             })}{" "}
             <Button
               variant="outline"
@@ -30,7 +30,7 @@ export const ListNoResults = (props: ListNoResultsProps) => {
               onClick={() => setFilters({}, [])}
             >
               {translate("ra.navigation.clear_filters", {
-                _: "Clear filters",
+                _: "Limpar filtros",
               })}
             </Button>
           </>
@@ -38,7 +38,7 @@ export const ListNoResults = (props: ListNoResultsProps) => {
           translate("ra.navigation.no_results", {
             resource,
             name: getResourceLabel(resource, 0),
-            _: "No results found.",
+            _: "Nenhum resultado encontrado.",
           })
         )}
       </p>

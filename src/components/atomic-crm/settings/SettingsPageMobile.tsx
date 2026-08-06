@@ -60,7 +60,7 @@ const ChangePasswordButton = () => {
       if (!identity) {
         throw new Error(
           translate("crm.profile.record_not_found", {
-            _: "Record not found",
+            _: "Registro não encontrado",
           }),
         );
       }
@@ -69,7 +69,7 @@ const ChangePasswordButton = () => {
     onSuccess: () => {
       notify("crm.profile.password_reset_sent", {
         messageArgs: {
-          _: "A reset password email has been sent to your email address",
+          _: "Um email de redefinição de senha foi enviado para o seu endereço de email",
         },
       });
     },
@@ -173,13 +173,13 @@ const ProfileSection = () => {
         refetchIdentity();
         refetchUser();
         notify("crm.profile.updated", {
-          messageArgs: { _: "Your profile has been updated" },
+          messageArgs: { _: "Seu perfil foi atualizado" },
         });
       } catch {
         queryClient.setQueryData(queryKey, previousData);
         notify("crm.profile.update_error", {
           type: "error",
-          messageArgs: { _: "An error occurred. Please try again" },
+          messageArgs: { _: "Ocorreu um erro. Por favor, tente novamente" },
         });
       }
     },
@@ -202,12 +202,12 @@ const ProfileSection = () => {
         refetchIdentity();
         refetchUser();
         notify("crm.profile.updated", {
-          messageArgs: { _: "Your profile has been updated" },
+          messageArgs: { _: "Seu perfil foi atualizado" },
         });
       } catch {
         notify("crm.profile.update_error", {
           type: "error",
-          messageArgs: { _: "An error occurred. Please try again." },
+          messageArgs: { _: "Ocorreu um erro. Por favor, tente novamente." },
         });
       }
     },
@@ -219,7 +219,7 @@ const ProfileSection = () => {
   return (
     <div>
       <SectionLabel>
-        {translate("crm.profile.title", { _: "Profile" })}
+        {translate("crm.profile.title", { _: "Perfil" })}
       </SectionLabel>
       <ItemGroup className="rounded-lg border overflow-hidden">
         <Form record={data}>
@@ -359,7 +359,7 @@ const PreferencesSection = () => {
   return (
     <div>
       <SectionLabel>
-        {translate("crm.settings.preferences", { _: "Preferences" })}
+        {translate("crm.settings.preferences", { _: "Preferências" })}
       </SectionLabel>
       <ItemGroup className="rounded-lg border overflow-hidden">
         <LanguageRow />
@@ -412,7 +412,7 @@ const ThemeRow = () => {
   return (
     <Item size="sm" className="flex-col items-stretch gap-2">
       <ItemTitle className="font-normal text-muted-foreground">
-        {translate("crm.theme.label", { _: "Theme" })}
+        {translate("crm.theme.label", { _: "Tema" })}
       </ItemTitle>
       <ToggleGroup
         type="single"
@@ -480,7 +480,7 @@ const McpServerSection = () => {
   return (
     <div>
       <SectionLabel>
-        {translate("crm.profile.mcp.title", { _: "MCP Server" })}
+        {translate("crm.profile.mcp.title", { _: "Servidor MCP" })}
       </SectionLabel>
       <p className="text-sm text-muted-foreground mb-2 px-1">
         {translate("crm.profile.mcp.description", {

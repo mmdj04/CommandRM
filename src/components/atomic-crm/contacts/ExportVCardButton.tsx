@@ -75,7 +75,7 @@ export const ExportVCardButton = () => {
     >
       <Download className="w-4 h-4" />
       {translate("resources.contacts.action.export_vcard", {
-        _: "Export to vCard",
+        _: "Exportar para vCard",
       })}
     </Button>
   );

@@ -74,12 +74,12 @@ const ImportFromJsonIdle = ({
     <div className="mb-4">
       <p className="text-sm">
         {translate("crm.import.idle.description_1", {
-          _: "You can import sales, companies, contacts, companies, notes, and tasks.",
+          _: "Você pode importar vendedores, empresas, contatos, notas e tarefas.",
         })}
       </p>
       <p className="text-sm">
         {translate("crm.import.idle.description_2", {
-          _: "Data must be in a JSON file matching the following sample:",
+          _: "Os dados devem estar em um arquivo JSON seguindo o seguinte modelo:",
         })}{" "}
         <a
           className="underline"
@@ -108,7 +108,7 @@ const ImportFromJsonError = ({
       <AlertCircleIcon />
       <AlertTitle>
         {translate("crm.import.error.unable", {
-          _: "Unable to import this file.",
+          _: "Não foi possível importar este arquivo.",
         })}
       </AlertTitle>
       <AlertDescription>
@@ -151,7 +151,7 @@ const ImportFromJsonStatus = ({
     <Spinner />
     <p className="my-4 text-sm text-center text-muted-foreground">
       {translate("crm.import.status.in_progress", {
-        _: "Import in progress, please don't navigate away from this page.",
+        _: "Importação em andamento, por favor não navegue para outra página.",
       })}
     </p>
     <ImportStats importState={importState} translate={translate} />
@@ -174,7 +174,7 @@ const ImportFromJsonSuccess = ({
         <>
           <span className="text-destructive">
             {translate("crm.import.status.some_failed", {
-              _: "Some records were not imported.",
+              _: "Alguns registros não foram importados.",
             })}{" "}
           </span>
           <DownloadErrorFileButton
@@ -185,7 +185,7 @@ const ImportFromJsonSuccess = ({
       ) : (
         <span>
           {translate("crm.import.status.all_success", {
-            _: "All records were imported successfully.",
+            _: "Todos os registros foram importados com sucesso.",
           })}
         </span>
       )}
@@ -194,7 +194,7 @@ const ImportFromJsonSuccess = ({
     <div className="flex justify-end mt-4">
       <Button variant="outline" onClick={reset}>
         {translate("crm.import.action.import_another", {
-          _: "Import another file",
+          _: "Importar outro arquivo",
         })}
       </Button>
     </div>
@@ -230,7 +230,7 @@ const DownloadErrorFileButton = ({
       download="atomic-crm-import-report.json"
     >
       {translate("crm.import.action.download_error_report", {
-        _: "Download the error report",
+        _: "Baixar relatório de erros",
       })}
     </a>
   );

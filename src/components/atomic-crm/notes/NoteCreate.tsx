@@ -99,7 +99,7 @@ const NoteCreateButton = ({
     });
     notify("resources.notes.added", {
       messageArgs: {
-        _: "Note added",
+        _: "Nota adicionada",
       },
     });
   };

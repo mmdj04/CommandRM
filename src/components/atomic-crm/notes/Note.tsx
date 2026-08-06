@@ -68,7 +68,7 @@ export const Note = ({
         type: "info",
         undoable: true,
         messageArgs: {
-          _: "Note deleted",
+          _: "Nota excluída",
         },
       });
     },

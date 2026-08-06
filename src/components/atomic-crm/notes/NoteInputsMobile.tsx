@@ -114,7 +114,7 @@ const AttachButton = () => {
       >
         <Paperclip className="size-4" />
         {translate("resources.notes.actions.attach_document", {
-          _: "Attach document",
+          _: "Anexar documento",
         })}
       </button>
       <input

@@ -31,7 +31,7 @@ export const StatusSelector = ({
   const translate = useTranslate();
   const isMobile = useIsMobile();
   const noneLabel = translate("resources.contacts.background.status_none", {
-    _: "None",
+    _: "Nenhum",
   });
 
   if (isMobile) {

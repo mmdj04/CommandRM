@@ -55,7 +55,7 @@ export function ActivityLogIterator() {
       <div className="p-4">
         <div className="text-center text-muted-foreground mb-4">
           {translate("crm.dashboard.latest_activity_error", {
-            _: "Error loading latest activity",
+            _: "Erro ao carregar última atividade",
           })}
         </div>
         <div className="text-center mt-2">
