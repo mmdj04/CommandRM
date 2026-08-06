@@ -1,5 +1,5 @@
 import { SaveIcon } from "lucide-react";
-import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
 import { useTranslate } from "ra-core";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,6 +16,7 @@ type TagFormProps = {
   tag?: Pick<Tag, "name" | "color">;
   onCancel?(): void;
   onSubmit(tag: Pick<Tag, "name" | "color">): Promise<void>;
+  footer?: ReactNode;
 };
 
 export function TagForm({
@@ -24,6 +25,7 @@ export function TagForm({
   tag,
   onCancel,
   onSubmit,
+  footer,
 }: TagFormProps) {
   const translate = useTranslate();
   const [newTagName, setNewTagName] = useState("");
@@ -89,6 +91,7 @@ export function TagForm({
       </div>
 
       <div className="flex justify-end gap-2 pt-4">
+        {footer}
         {onCancel && (
           <Button
             type="button"

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   Dialog,
   DialogContent,
@@ -14,6 +15,7 @@ type TagDialogProps = {
   title: string;
   onSubmit(tag: Pick<Tag, "name" | "color">): Promise<void>;
   onClose(): void;
+  footer?: ReactNode;
 };
 
 export function TagDialog({
@@ -22,6 +24,7 @@ export function TagDialog({
   title,
   onClose,
   onSubmit,
+  footer,
 }: TagDialogProps) {
   const handleClose = (isOpen = false) => {
     if (!isOpen) {
@@ -40,7 +43,12 @@ export function TagDialog({
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
         </DialogHeader>
-        <TagForm open={open} tag={tag} onSubmit={handleSubmit} />
+        <TagForm
+          open={open}
+          tag={tag}
+          onSubmit={handleSubmit}
+          footer={footer}
+        />
       </DialogContent>
     </Dialog>
   );
