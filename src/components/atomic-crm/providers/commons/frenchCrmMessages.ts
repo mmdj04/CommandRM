@@ -386,6 +386,7 @@ export const frenchCrmMessages = {
         "Si vous êtes un utilisateur enregistré, vous devriez recevoir prochainement un e-mail de récupération de mot de passe.",
       sign_in_failed: "Échec de la connexion.",
       sign_in_google_workspace: "Connectez-vous avec Google Workplace",
+      forgot_password: "Mot de passe oublié ?",
       signup: {
         create_account: "Créer un compte",
         create_first_user:

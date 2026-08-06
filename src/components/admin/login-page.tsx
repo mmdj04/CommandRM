@@ -94,7 +94,7 @@ export const LoginPage = (props: { redirectTo?: string }) => {
               to={"/forgot-password"}
               className="block text-sm text-center hover:underline"
             >
-              {translate("ra.auth.forgot_password", { _: "Esqueceu sua senha?" })}
+              {translate("crm.auth.forgot_password", { _: "Esqueceu sua senha?" })}
             </Link>
           </div>
         </div>

@@ -380,6 +380,7 @@ export const englishCrmMessages = {
         "If you're a registered user, you should receive a password recovery email shortly.",
       sign_in_failed: "Failed to log in.",
       sign_in_google_workspace: "Sign in with Google Workplace",
+      forgot_password: "Forgot your password?",
       signup: {
         create_account: "Create account",
         create_first_user:

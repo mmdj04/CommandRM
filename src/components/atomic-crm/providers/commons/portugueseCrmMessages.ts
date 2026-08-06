@@ -380,6 +380,7 @@ export const portugueseCrmMessages = {
         "Se você for um usuário registrado, deverá receber um email de recuperação de senha em breve.",
       sign_in_failed: "Falha ao fazer login.",
       sign_in_google_workspace: "Entrar com Google Workspace",
+      forgot_password: "Esqueceu sua senha?",
       signup: {
         create_account: "Criar conta",
         create_first_user:
