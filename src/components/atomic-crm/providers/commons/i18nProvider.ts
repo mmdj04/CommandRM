@@ -31,6 +31,8 @@ const raSupabasePortugueseMessagesOverride = {
     auth: {
       password_reset:
         "Verifique seu email para a mensagem de redefinição de senha.",
+      forgot_password: "Esqueceu sua senha?",
+      forgot_password_details: "Digite seu email para instruções.",
     },
   },
 };
