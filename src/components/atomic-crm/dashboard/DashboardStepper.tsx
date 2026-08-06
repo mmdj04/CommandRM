@@ -54,10 +54,10 @@ export const DashboardStepper = ({
               <div className="w-[150px]">
                 <Progress value={(step / 3) * 100} className="mb-2" />
                 <div className="text-right text-sm">
-                  {translate("crm.dashboard.stepper.progress", {
-                    _: `${step}/3 done`,
-                    step,
-                  })}
+                {translate("crm.dashboard.stepper.progress", {
+                  _: `${step}/3 concluído`,
+                  step,
+                })}
                 </div>
               </div>
             </div>

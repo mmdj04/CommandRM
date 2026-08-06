@@ -22,7 +22,7 @@ const isUrl = (url: string) => {
   if (!UrlRegex.test(url)) {
     return {
       message: "crm.validation.invalid_url",
-      args: { _: "Must be a valid URL" },
+      args: { _: "Deve ser uma URL válida" },
     };
   }
 };
@@ -67,7 +67,7 @@ const CompanyDisplayInputs = () => {
         validate={required()}
         helperText={false}
         placeholder={translate("resources.companies.fields.name", {
-          _: "Company name",
+          _: "Nome da empresa",
         })}
       />
     </div>
@@ -80,7 +80,7 @@ const CompanyContactInputs = () => {
     <div className="flex flex-col gap-4">
       <h6 className="text-lg font-semibold">
         {translate("resources.companies.field_categories.contact", {
-          _: "Company info",
+          _: "Informações da empresa",
         })}
       </h6>
       <TextInput source="website" helperText={false} validate={isUrl} />
@@ -105,7 +105,7 @@ const CompanyContextInputs = () => {
     <div className="flex flex-col gap-4">
       <h6 className="text-lg font-semibold">
         {translate("resources.companies.field_categories.context", {
-          _: "Context",
+          _: "Contexto",
         })}
       </h6>
       <SelectInput
@@ -128,7 +128,7 @@ const CompanyAddressInputs = () => {
     <div className="flex flex-col gap-4">
       <h6 className="text-lg font-semibold">
         {translate("resources.companies.field_categories.address", {
-          _: "Address",
+          _: "Endereço",
         })}
       </h6>
       <TextInput source="address" helperText={false} />
@@ -146,7 +146,7 @@ const CompanyAdditionalInformationInputs = () => {
     <div className="flex flex-col gap-4">
       <h6 className="text-lg font-semibold">
         {translate("resources.companies.field_categories.additional_info", {
-          _: "Additional information",
+          _: "Informações adicionais",
         })}
       </h6>
       <TextInput source="description" multiline helperText={false} />

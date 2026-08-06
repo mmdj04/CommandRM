@@ -21,12 +21,12 @@ export const ConfirmationRequired = () => {
         <div className="max-w-sm mx-auto h-full flex flex-col justify-center gap-4">
           <h1 className="text-2xl font-bold mb-4">
             {translate("crm.auth.welcome_title", {
-              _: "Welcome to Atomic CRM",
+              _: "Bem-vindo ao Atomic CRM",
             })}
           </h1>
           <p className="text-base mb-4">
             {translate("crm.auth.confirmation_required", {
-              _: "Please follow the link we just sent you by email to confirm your account.",
+              _: "Por favor, siga o link que acabamos de enviar por email para confirmar sua conta.",
             })}
           </p>
         </div>

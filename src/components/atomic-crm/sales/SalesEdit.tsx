@@ -40,7 +40,7 @@ export function SalesEdit() {
       if (!record) {
         throw new Error(
           translate("resources.sales.edit.record_not_found", {
-            _: "Record not found",
+            _: "Registro não encontrado",
           }),
         );
       }
@@ -50,7 +50,7 @@ export function SalesEdit() {
       redirect("/sales");
       notify("resources.sales.edit.success", {
         messageArgs: {
-          _: "User updated successfully",
+          _: "Usuário atualizado com sucesso",
         },
       });
     },

@@ -228,34 +228,34 @@ const ContactMergeDialog = ({ open, onClose }: ContactMergeDialogProps) => {
                 <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   {notesCount != null && notesCount > 0 && (
                     <li>
-                      • {notesCount} note
-                      {notesCount !== 1 ? "s" : ""} will be reassigned
+                      • {notesCount} nota
+                      {notesCount !== 1 ? "s" : ""} será reatribuída
                     </li>
                   )}
                   {tasksCount != null && tasksCount > 0 && (
                     <li>
-                      • {tasksCount} task
-                      {tasksCount !== 1 ? "s" : ""} will be reassigned
+                      • {tasksCount} tarefa
+                      {tasksCount !== 1 ? "s" : ""} será reatribuída
                     </li>
                   )}
                   {dealsCount != null && dealsCount > 0 && (
                     <li>
-                      • {dealsCount} deal
-                      {dealsCount !== 1 ? "s" : ""} will be updated
+                      • {dealsCount} negócio
+                      {dealsCount !== 1 ? "s" : ""} será atualizado
                     </li>
                   )}
                   {loserContact.email_jsonb?.length > 0 && (
                     <li>
-                      • {loserContact.email_jsonb.length} email address
-                      {loserContact.email_jsonb.length !== 1 ? "es" : ""} will
-                      be added
+                      • {loserContact.email_jsonb.length} endereço
+                      {loserContact.email_jsonb.length !== 1 ? "s" : ""} de
+                      email será adicionado
                     </li>
                   )}
                   {loserContact.phone_jsonb?.length > 0 && (
                     <li>
-                      • {loserContact.phone_jsonb.length} phone number
-                      {loserContact.phone_jsonb.length !== 1 ? "s" : ""} will be
-                      added
+                      • {loserContact.phone_jsonb.length} número
+                      {loserContact.phone_jsonb.length !== 1 ? "s" : ""} de
+                      telefone será adicionado
                     </li>
                   )}
                   {!notesCount &&

@@ -43,7 +43,7 @@ export const SignupPage = () => {
         .then(() => {
           notify("crm.auth.signup.initial_user_created", {
             messageArgs: {
-              _: "Initial user successfully created",
+              _: "Primeiro usuário criado com sucesso",
             },
           });
           // FIXME: We should probably provide a hook for that in the ra-core package
@@ -59,7 +59,7 @@ export const SignupPage = () => {
             notify("crm.auth.sign_in_failed", {
               type: "error",
               messageArgs: {
-                _: "Failed to log in.",
+                _: "Falha ao fazer login.",
               },
             });
             navigate("/login");
@@ -110,7 +110,7 @@ export const SignupPage = () => {
         <div className="max-w-sm mx-auto h-full flex flex-col justify-center gap-4">
           <h1 className="text-2xl font-bold mb-4">
             {translate("crm.auth.welcome_title", {
-              _: "Welcome to Atomic CRM",
+              _: "Bem-vindo ao Atomic CRM",
             })}
           </h1>
           <p className="text-base mb-4">
@@ -169,12 +169,12 @@ export const SignupPage = () => {
                   <>
                     <Loader2 className="w-4 h-4 animate-spin mr-2" />
                     {translate("crm.auth.signup.creating", {
-                      _: "Creating...",
+                      _: "Criando...",
                     })}
                   </>
                 ) : (
                   translate("crm.auth.signup.create_account", {
-                    _: "Create account",
+                    _: "Criar conta",
                   })
                 )}
               </Button>
@@ -184,7 +184,7 @@ export const SignupPage = () => {
                   domain={googleWorkplaceDomain}
                 >
                   {translate("crm.auth.sign_in_google_workspace", {
-                    _: "Sign in with Google Workplace",
+                    _: "Entrar com Google Workspace",
                   })}
                 </SSOAuthButton>
               ) : null}

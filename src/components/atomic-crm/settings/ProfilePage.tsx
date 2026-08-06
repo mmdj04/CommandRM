@@ -239,7 +239,7 @@ const ProfileForm = ({
               </h2>
               <p className="text-sm text-muted-foreground">
                 {translate("crm.profile.inbound.description", {
-                  _: "You can start sending emails to your server's inbound email address, e.g. by adding it to the Cc: field. Atomic CRM will process the emails and add notes to the corresponding contacts.",
+                  _: "Você pode começar a enviar emails para o endereço de email de entrada do seu servidor, por exemplo, adicionando-o ao campo Cc:. O Atomic CRM processará os emails e adicionará anotações aos contatos correspondentes.",
                   field: "Cc:",
                 })}
               </p>
@@ -258,7 +258,7 @@ const ProfileForm = ({
             </h2>
             <p className="text-sm text-muted-foreground">
               {translate("crm.profile.mcp.description", {
-                _: "Use this URL to connect your AI assistant to your CRM data via the Model Context Protocol (MCP).",
+                _: "Use esta URL para conectar seu assistente de IA aos dados do seu CRM via Model Context Protocol (MCP).",
               })}
             </p>
             <CopyPaste

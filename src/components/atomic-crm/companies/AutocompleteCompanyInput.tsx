@@ -31,7 +31,7 @@ export const AutocompleteCompanyInput = ({
       notify("resources.companies.autocomplete.create_error", {
         type: "error",
         messageArgs: {
-          _: "An error occurred while creating the company",
+          _: "Ocorreu um erro ao criar a empresa",
         },
       });
     }

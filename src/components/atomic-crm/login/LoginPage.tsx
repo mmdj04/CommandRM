@@ -44,7 +44,7 @@ export const LoginPage = (props: { redirectTo?: string }) => {
     notify("crm.auth.recovery_email_sent", {
       type: "success",
       messageArgs: {
-        _: "If you're a registered user, you should receive a password recovery email shortly.",
+        _: "Se você for um usuário registrado, deverá receber um email de recuperação de senha em breve.",
       },
     });
 
@@ -133,7 +133,7 @@ export const LoginPage = (props: { redirectTo?: string }) => {
             {googleWorkplaceDomain ? (
               <SSOAuthButton className="w-full" domain={googleWorkplaceDomain}>
                 {translate("crm.auth.sign_in_google_workspace", {
-                  _: "Sign in with Google Workplace",
+                  _: "Entrar com Google Workspace",
                 })}
               </SSOAuthButton>
             ) : null}

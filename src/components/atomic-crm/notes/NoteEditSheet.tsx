@@ -105,7 +105,7 @@ const NoteEditMenuButton = ({
         >
           <EllipsisVertical className="size-6" />
           <span className="sr-only">
-            {translate("ra.action.open_menu", { _: "More" })}
+            {translate("ra.action.open_menu", { _: "Mais" })}
           </span>
         </button>
       </DropdownMenuTrigger>
