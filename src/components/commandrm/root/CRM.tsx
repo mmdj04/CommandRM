@@ -62,6 +62,21 @@ const ContactShow = lazy(() => import("../contacts/ContactShow").then(m => ({ de
 const CompanyShow = lazy(() => import("../companies/CompanyShow").then(m => ({ default: m.CompanyShow })));
 const NoteShowPage = lazy(() => import("../notes/NoteShowPage").then(m => ({ default: m.NoteShowPage })));
 
+// Route paths (defined separately for lazy loaded components)
+const ROUTE_PATHS = {
+  signup: "/signup",
+  confirmationRequired: "/confirmation-required",
+  setPassword: "/set-password",
+  forgotPassword: "/forgot-password",
+  oauthConsent: "/oauth/consent",
+  profile: "/profile",
+  settings: "/settings",
+  import: "/import",
+  changelog: "/changelog",
+  settingsMobile: "/settings",
+  noteShow: ":id/notes/:noteId",
+} as const;
+
 const defaultStore = localStorageStore(undefined, "CRM");
 
 export type CRMProps = {
@@ -246,24 +261,24 @@ const DesktopAdmin = (
         {...props}
       >
         <CustomRoutes noLayout>
-          <Route path={SignupPage.path} element={<SignupPage />} />
+          <Route path={ROUTE_PATHS.signup} element={<SignupPage />} />
           <Route
-            path={ConfirmationRequired.path}
+            path={ROUTE_PATHS.confirmationRequired}
             element={<ConfirmationRequired />}
           />
-          <Route path={SetPasswordPage.path} element={<SetPasswordPage />} />
+          <Route path={ROUTE_PATHS.setPassword} element={<SetPasswordPage />} />
           <Route
-            path={ForgotPasswordPage.path}
+            path={ROUTE_PATHS.forgotPassword}
             element={<ForgotPasswordPage />}
           />
-          <Route path={OAuthConsentPage.path} element={<OAuthConsentPage />} />
+          <Route path={ROUTE_PATHS.oauthConsent} element={<OAuthConsentPage />} />
         </CustomRoutes>
 
         <CustomRoutes>
-          <Route path={ProfilePage.path} element={<ProfilePage />} />
-          <Route path={SettingsPage.path} element={<SettingsPage />} />
-          <Route path={ImportPage.path} element={<ImportPage />} />
-          <Route path={ChangelogPage.path} element={<ChangelogPage />} />
+          <Route path={ROUTE_PATHS.profile} element={<ProfilePage />} />
+          <Route path={ROUTE_PATHS.settings} element={<SettingsPage />} />
+          <Route path={ROUTE_PATHS.import} element={<ImportPage />} />
+          <Route path={ROUTE_PATHS.changelog} element={<ChangelogPage />} />
         </CustomRoutes>
         <Resource name="deals" {...deals} />
         <Resource name="contacts" {...contacts} />
@@ -312,24 +327,24 @@ const MobileAdmin = (
           {...props}
         >
           <CustomRoutes noLayout>
-            <Route path={SignupPage.path} element={<SignupPage />} />
+            <Route path={ROUTE_PATHS.signup} element={<SignupPage />} />
             <Route
-              path={ConfirmationRequired.path}
+              path={ROUTE_PATHS.confirmationRequired}
               element={<ConfirmationRequired />}
             />
-            <Route path={SetPasswordPage.path} element={<SetPasswordPage />} />
+            <Route path={ROUTE_PATHS.setPassword} element={<SetPasswordPage />} />
             <Route
-              path={ForgotPasswordPage.path}
+              path={ROUTE_PATHS.forgotPassword}
               element={<ForgotPasswordPage />}
             />
-            <Route path={OAuthConsentPage.path} element={<OAuthConsentPage />} />
+            <Route path={ROUTE_PATHS.oauthConsent} element={<OAuthConsentPage />} />
           </CustomRoutes>
           <CustomRoutes>
             <Route
-              path={SettingsPageMobile.path}
+              path={ROUTE_PATHS.settingsMobile}
               element={<SettingsPageMobile />}
             />
-            <Route path={ChangelogPage.path} element={<ChangelogPage />} />
+            <Route path={ROUTE_PATHS.changelog} element={<ChangelogPage />} />
           </CustomRoutes>
           <Resource
             name="contacts"
@@ -337,7 +352,7 @@ const MobileAdmin = (
             show={ContactShow}
             recordRepresentation={contacts.recordRepresentation}
           >
-            <Route path=":id/notes/:noteId" element={<NoteShowPage />} />
+            <Route path={ROUTE_PATHS.noteShow} element={<NoteShowPage />} />
           </Resource>
           <Resource name="companies" show={CompanyShow} />
           <Resource name="tasks" list={MobileTasksList} />
