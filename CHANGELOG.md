@@ -1,3 +1,39 @@
+## v1.8.1 - 07/08/2026
+
+### Performance
+
+* Implementar lazy loading com `React.lazy` para todas as rotas (reduz JavaScript não utilizado em ~400 KiB)
+* Adicionar `<Suspense>` com fallback "Carregando..." para carregamento assíncrono
+* Desabilitar sourcemaps em produção para reduzir tamanho do bundle
+* Mover `<main>` landmark para dentro do React App (correção do Accessibility 100/100)
+
+### Acessibilidade
+
+* Adicionar `<main>` wrapper no componente React para garantir landmark SEMPRE presente
+* Corrigir Issue: "Document does not have a main landmark"
+
+### SEO
+
+* Atualizar referências no README.md para `mmdj04/CommandRM`
+* Atualizar links de demo para `command-rm.vercel.app`
+* Atualizar email de contato para `matheusmoraesdj2025@gmail.com`
+* Adicionar crédito do desenvolvedor Matheus Moraes com WhatsApp
+
+### Documentação
+
+* Atualizar CHANGELOG.md com referências corretas ao repositório
+* Atualizar CODE_OF_CONDUCT.md com informações de contato
+* Atualizar .github/CONTRIBUTING.md com referências corretas
+* Atualizar .github/CODE_OF_CONDUCT.md com informações de contato
+* Atualizar .github/pull_request_template.md com links corretos
+
+### Configuração
+
+* Renomear branch `master` para `main`
+* Proteger branch `main` no GitHub (requer PR, sem force push)
+
+---
+
 ## v1.8.0 - 07/08/2026
 
 ### Segurança
