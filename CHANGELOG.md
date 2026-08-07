@@ -8,6 +8,15 @@
 * Adicionar `beforeDelete` no dataProvider Supabase para `sales`: reatribuir empresas, contatos, anotações de contatos, oportunidades e anotações de oportunidades antes de excluir
 * Resolver conflitos de foreign key ao excluir usuários (409 Conflict)
 
+### Performance
+
+* Suspense granular por rota no DesktopAdmin e MobileAdmin (remove tela branca "Carregando" na carga inicial)
+
+### Validação
+
+* Validar formato de email no formulario de login antes de enviar ao Supabase
+* Validar senha mínima (6 caracteres) no formulario de login
+
 ### Supabase
 
 * Deploy das Edge Functions `update_password` e `users` com correções
