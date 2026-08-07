@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Form, required, useLogin, useNotify, useTranslate } from "ra-core";
+import { Form, required, email, minLength, useLogin, useNotify, useTranslate } from "ra-core";
 import type { SubmitHandler, FieldValues } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router";
 import { Button } from "@/components/ui/button";
@@ -123,13 +123,13 @@ export const LoginPage = (props: { redirectTo?: string }) => {
                   label="ra.auth.email"
                   source="email"
                   type="email"
-                  validate={required()}
+                  validate={[required(), email()]}
                 />
                 <TextInput
                   label="ra.auth.password"
                   source="password"
                   type="password"
-                  validate={required()}
+                  validate={[required(), minLength(6)]}
                 />
                 <div className="flex flex-col gap-4">
                   <Button

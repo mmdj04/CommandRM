@@ -254,31 +254,100 @@ const DesktopAdmin = (
   },
 ) => {
   return (
-    <Suspense fallback={<div>Carregando...</div>}>
+    <Suspense>
       <Admin
-        layout={props.layout ?? Layout}
-        dashboard={props.dashboard ?? Dashboard}
+        layout={
+          props.layout ??
+          (({ children }) => (
+            <Suspense fallback={null}>
+              <Layout>{children}</Layout>
+            </Suspense>
+          ))
+        }
+        dashboard={
+          props.dashboard ??
+          (({ children }) => (
+            <Suspense fallback={null}>{children}</Suspense>
+          ))
+        }
         {...props}
       >
         <CustomRoutes noLayout>
-          <Route path={ROUTE_PATHS.signup} element={<SignupPage />} />
+          <Route
+            path={ROUTE_PATHS.signup}
+            element={
+              <Suspense fallback={<div>Carregando...</div>}>
+                <SignupPage />
+              </Suspense>
+            }
+          />
           <Route
             path={ROUTE_PATHS.confirmationRequired}
-            element={<ConfirmationRequired />}
+            element={
+              <Suspense fallback={<div>Carregando...</div>}>
+                <ConfirmationRequired />
+              </Suspense>
+            }
           />
-          <Route path={ROUTE_PATHS.setPassword} element={<SetPasswordPage />} />
+          <Route
+            path={ROUTE_PATHS.setPassword}
+            element={
+              <Suspense fallback={<div>Carregando...</div>}>
+                <SetPasswordPage />
+              </Suspense>
+            }
+          />
           <Route
             path={ROUTE_PATHS.forgotPassword}
-            element={<ForgotPasswordPage />}
+            element={
+              <Suspense fallback={<div>Carregando...</div>}>
+                <ForgotPasswordPage />
+              </Suspense>
+            }
           />
-          <Route path={ROUTE_PATHS.oauthConsent} element={<OAuthConsentPage />} />
+          <Route
+            path={ROUTE_PATHS.oauthConsent}
+            element={
+              <Suspense fallback={<div>Carregando...</div>}>
+                <OAuthConsentPage />
+              </Suspense>
+            }
+          />
         </CustomRoutes>
 
         <CustomRoutes>
-          <Route path={ROUTE_PATHS.profile} element={<ProfilePage />} />
-          <Route path={ROUTE_PATHS.settings} element={<SettingsPage />} />
-          <Route path={ROUTE_PATHS.import} element={<ImportPage />} />
-          <Route path={ROUTE_PATHS.changelog} element={<ChangelogPage />} />
+          <Route
+            path={ROUTE_PATHS.profile}
+            element={
+              <Suspense fallback={null}>
+                <ProfilePage />
+              </Suspense>
+            }
+          />
+          <Route
+            path={ROUTE_PATHS.settings}
+            element={
+              <Suspense fallback={null}>
+                <SettingsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path={ROUTE_PATHS.import}
+            element={
+              <Suspense fallback={null}>
+                <ImportPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path={ROUTE_PATHS.changelog}
+            element={
+              <Suspense fallback={null}>
+                <ChangelogPage />
+              </Suspense>
+            }
+          />
         </CustomRoutes>
         <Resource name="deals" {...deals} />
         <Resource name="contacts" {...contacts} />
@@ -315,47 +384,122 @@ const MobileAdmin = (
   });
 
   return (
-    <Suspense fallback={<div>Carregando...</div>}>
+    <Suspense>
       <PersistQueryClientProvider
         client={queryClient}
         persistOptions={{ persister: asyncStoragePersister }}
       >
         <Admin
           queryClient={queryClient}
-          layout={props.layout ?? MobileLayout}
-          dashboard={props.dashboard ?? MobileDashboard}
+          layout={
+            props.layout ??
+            (({ children }) => (
+              <Suspense fallback={null}>
+                <MobileLayout>{children}</MobileLayout>
+              </Suspense>
+            ))
+          }
+          dashboard={
+            props.dashboard ??
+            (({ children }) => (
+              <Suspense fallback={null}>{children}</Suspense>
+            ))
+          }
           {...props}
         >
           <CustomRoutes noLayout>
-            <Route path={ROUTE_PATHS.signup} element={<SignupPage />} />
+            <Route
+              path={ROUTE_PATHS.signup}
+              element={
+                <Suspense fallback={<div>Carregando...</div>}>
+                  <SignupPage />
+                </Suspense>
+              }
+            />
             <Route
               path={ROUTE_PATHS.confirmationRequired}
-              element={<ConfirmationRequired />}
+              element={
+                <Suspense fallback={<div>Carregando...</div>}>
+                  <ConfirmationRequired />
+                </Suspense>
+              }
             />
-            <Route path={ROUTE_PATHS.setPassword} element={<SetPasswordPage />} />
+            <Route
+              path={ROUTE_PATHS.setPassword}
+              element={
+                <Suspense fallback={<div>Carregando...</div>}>
+                  <SetPasswordPage />
+                </Suspense>
+              }
+            />
             <Route
               path={ROUTE_PATHS.forgotPassword}
-              element={<ForgotPasswordPage />}
+              element={
+                <Suspense fallback={<div>Carregando...</div>}>
+                  <ForgotPasswordPage />
+                </Suspense>
+              }
             />
-            <Route path={ROUTE_PATHS.oauthConsent} element={<OAuthConsentPage />} />
+            <Route
+              path={ROUTE_PATHS.oauthConsent}
+              element={
+                <Suspense fallback={<div>Carregando...</div>}>
+                  <OAuthConsentPage />
+                </Suspense>
+              }
+            />
           </CustomRoutes>
           <CustomRoutes>
             <Route
               path={ROUTE_PATHS.settingsMobile}
-              element={<SettingsPageMobile />}
+              element={
+                <Suspense fallback={null}>
+                  <SettingsPageMobile />
+                </Suspense>
+              }
             />
-            <Route path={ROUTE_PATHS.changelog} element={<ChangelogPage />} />
+            <Route
+              path={ROUTE_PATHS.changelog}
+              element={
+                <Suspense fallback={null}>
+                  <ChangelogPage />
+                </Suspense>
+              }
+            />
           </CustomRoutes>
           <Resource
             name="contacts"
-            list={ContactListMobile}
-            show={ContactShow}
+            list={
+              <Suspense fallback={null}>
+                <ContactListMobile />
+              </Suspense>
+            }
+            show={
+              <Suspense fallback={null}>
+                <ContactShow />
+              </Suspense>
+            }
             recordRepresentation={contacts.recordRepresentation}
           >
-            <Route path={ROUTE_PATHS.noteShow} element={<NoteShowPage />} />
+            <Route
+              path={ROUTE_PATHS.noteShow}
+              element={
+                <Suspense fallback={null}>
+                  <NoteShowPage />
+                </Suspense>
+              }
+            />
           </Resource>
-          <Resource name="companies" show={CompanyShow} />
-          <Resource name="tasks" list={MobileTasksList} />
+          <Resource name="companies" show={
+            <Suspense fallback={null}>
+              <CompanyShow />
+            </Suspense>
+          } />
+          <Resource name="tasks" list={
+            <Suspense fallback={null}>
+              <MobileTasksList />
+            </Suspense>
+          } />
         </Admin>
       </PersistQueryClientProvider>
     </Suspense>
