@@ -1,23 +1,23 @@
-# Politica de Seguranca
+# Política de Segurança
 
-## Versao Suportada
+## Versão Suportada
 
-| Versao | Suportado          |
+| Versão | Suportado          |
 | ------- | ------------------ |
 | 1.6.x   | :white_check_mark: |
 | < 1.6   | :x:                |
 
 ## Reportar Vulnerabilidades
 
-Por favor, nao reporte vulnerabilidades de seguranca publicamente. Em vez disso, use o [GitHub Security Advisory](https://github.com/mmdj04/CommandRM/security/advisories/new) para reportar vulnerabilidades de forma privada.
+Por favor, não reporte vulnerabilidades de segurança publicamente. Em vez disso, use o [GitHub Security Advisory](https://github.com/mmdj04/CommandRM/security/advisories/new) para reportar vulnerabilidades de forma privada.
 
 ## Processo
 
 1. **Reporte**: Use o GitHub Security Advisory para reportar a vulnerabilidade de forma segura e privada.
-2. **Confirmacao**: Confirmaremos o recebimento do seu reporte dentro de 48 horas.
-3. **Avaliacao**: Avaliaremos a vulnerabilidade e determinaremos seu impacto.
-4. **Correcao**: Trabalharemos para corrigir a vulnerabilidade o mais rapido possivel.
-5. **Divulgacao**: Divulgaremos a vulnerabilidade apos a correcao ser disponibilizada.
+2. **Confirmação**: Confirmaremos o recebimento do seu reporte dentro de 48 horas.
+3. **Avaliação**: Avaliaremos a vulnerabilidade e determinaremos seu impacto.
+4. **Correção**: Trabalharemos para corrigir a vulnerabilidade o mais rápido possível.
+5. **Divulgação**: Divulgaremos a vulnerabilidade após a correção ser disponibilizada.
 
 ## Recursos
 
@@ -28,4 +28,4 @@ Por favor, nao reporte vulnerabilidades de seguranca publicamente. Em vez disso,
 
 ## Agradecimentos
 
-Agradecemos a todos os pesquisadores de seguranca que reportam vulnerabilidades de forma responsavel.
+Agradecemos a todos os pesquisadores de segurança que reportam vulnerabilidades de forma responsável.

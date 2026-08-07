@@ -1,4 +1,4 @@
-import { Globe, Linkedin, Phone } from "lucide-react";
+import { Globe, ExternalLink, Phone } from "lucide-react";
 import {
   useGetIdentity,
   useLocaleState,
@@ -84,7 +84,7 @@ export const CompanyInfo = ({ record }: { record: Company }) => {
       )}
       {record.linkedin_url && (
         <div className="flex flex-row items-center gap-1 min-h-[24px]">
-          <Linkedin className="w-4 h-4" />
+          <ExternalLink className="w-4 h-4" />
           <a
             className="underline hover:no-underline"
             href={record.linkedin_url}

@@ -1,3 +1,49 @@
+## v1.7.0 - 07/08/2026
+
+### Atualizações de Dependências
+
+* Atualizar **118 dependências** (53 minor/patch via npm update)
+* Atualizar **22 pacotes Radix UI** para última versão
+* Atualizar **TanStack Query** (react-query, persist-client, async-storage-persister)
+* Atualizar **Tailwind CSS** (core + vite plugin) para v4.3.3
+* Atualizar **react-admin** (ra-core, ra-i18n-polyglot, ra-language-english, ra-language-french) para v5.15.0
+* Atualizar **65+ tipos** (@types/*) para últimas versões
+* Atualizar **12 dev tools** (playwright, vitest-browser, lint-staged, typescript-eslint, etc.)
+* Atualizar **lucide-react** para v1.29.0
+* Atualizar **zod** para v4.4.3
+* Atualizar **dompurify** para v3.4.13
+* Atualizar **marked** para v18.0.9
+* Atualizar **qs** para v6.15.3
+* Atualizar **papaparse** para v5.5.4
+* Atualizar **prettier** para v3.9.6
+* Atualizar **tldts** para v7.4.10
+* Adicionar **react-router-dom** v7.18.2 (necessário para ra-core)
+
+### Componentes shadcn UI
+
+* Adicionar **25 novos componentes** shadcn UI (total: 59 componentes)
+* Novos: aspect-ratio, attachment, bubble, button-group, calendar, carousel, chart, collapsible, combobox, context-menu, direction, empty, field, hover-card, input-group, input-otp, kbd, marker, menubar, message, message-scroller, native-select, resizable, scroll-area, slider
+
+### Storybook
+
+* Atualizar **Storybook** de v9.1.19 para **v10.5.7** (última versão)
+* Atualizar **@storybook/react-vite** para v10.5.7
+* Atualizar **@storybook/addon-links** para v10.5.7
+* Atualizar **eslint-plugin-storybook** para v10.5.7
+* Remover pacotes deprecados: @storybook/addon-essentials, @storybook/blocks, @storybook/icons, @storybook/addon-mcp
+
+### Correções
+
+* Fix: Corrigir imports `react-router-dom` para `react-router` em 3 arquivos
+* Fix: Corrigir ícone `Linkedin` removido do lucide-react v1.x (substituído por `ExternalLink`)
+* Fix: Corrigir compilação TypeScript após atualizações
+
+### Segurança
+
+* Reduzir vulnerabilidades de 19 para 2 (remanescentes: react-router 7.12-8.2.0)
+
+---
+
 ## v1.6.0 - 06/08/2026
 
 ### O que mudou

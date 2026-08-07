@@ -6,10 +6,11 @@ afterEach(() => {
 });
 
 describe("i18nProvider", () => {
-  it("registers en and fr locales", () => {
+  it("registers en, fr and pt-BR locales", () => {
     expect(i18nProvider.getLocales?.()).toEqual([
       { locale: "en", name: "English" },
       { locale: "fr", name: "Français" },
+      { locale: "pt-BR", name: "Português (Brasil)" },
     ]);
   });
 
@@ -25,7 +26,7 @@ describe("i18nProvider", () => {
     expect(i18nProvider.translate("crm.language")).toBe("Language");
   });
 
-  it("uses customized password reset overrides for en and fr", async () => {
+  it("uses customized password reset overrides for en, fr and pt-BR", async () => {
     await i18nProvider.changeLocale("en");
     expect(i18nProvider.translate("ra-supabase.auth.password_reset")).toBe(
       "Check your emails for a Reset Password message.",
@@ -34,6 +35,11 @@ describe("i18nProvider", () => {
     await i18nProvider.changeLocale("fr");
     expect(i18nProvider.translate("ra-supabase.auth.password_reset")).toBe(
       "Consultez vos emails pour trouver le message de reinitialisation du mot de passe.",
+    );
+
+    await i18nProvider.changeLocale("pt-BR");
+    expect(i18nProvider.translate("ra-supabase.auth.password_reset")).toBe(
+      "Verifique seu email para a mensagem de redefinição de senha.",
     );
   });
 
@@ -54,12 +60,21 @@ describe("i18nProvider", () => {
     expect(getInitialLocale()).toBe("fr");
   });
 
-  it("falls back to english when browser locale is unsupported", () => {
+  it("uses browser portuguese locale when available", () => {
     vi.stubGlobal("navigator", {
-      language: "es-ES",
-      languages: ["es-ES", "pt-BR"],
+      language: "pt-BR",
+      languages: ["pt-BR", "en-US"],
     });
 
-    expect(getInitialLocale()).toBe("en");
+    expect(getInitialLocale()).toBe("pt-BR");
+  });
+
+  it("falls back to pt-BR when browser locale is unsupported", () => {
+    vi.stubGlobal("navigator", {
+      language: "es-ES",
+      languages: ["es-ES", "de-DE"],
+    });
+
+    expect(getInitialLocale()).toBe("pt-BR");
   });
 });
