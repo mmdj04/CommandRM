@@ -256,20 +256,8 @@ const DesktopAdmin = (
   return (
     <Suspense>
       <Admin
-        layout={
-          props.layout ??
-          (({ children }) => (
-            <Suspense fallback={null}>
-              <Layout>{children}</Layout>
-            </Suspense>
-          ))
-        }
-        dashboard={
-          props.dashboard ??
-          (({ children }) => (
-            <Suspense fallback={null}>{children}</Suspense>
-          ))
-        }
+        layout={props.layout ?? Layout}
+        dashboard={props.dashboard ?? Dashboard}
         {...props}
       >
         <CustomRoutes noLayout>
@@ -391,20 +379,8 @@ const MobileAdmin = (
       >
         <Admin
           queryClient={queryClient}
-          layout={
-            props.layout ??
-            (({ children }) => (
-              <Suspense fallback={null}>
-                <MobileLayout>{children}</MobileLayout>
-              </Suspense>
-            ))
-          }
-          dashboard={
-            props.dashboard ??
-            (({ children }) => (
-              <Suspense fallback={null}>{children}</Suspense>
-            ))
-          }
+          layout={props.layout ?? MobileLayout}
+          dashboard={props.dashboard ?? MobileDashboard}
           {...props}
         >
           <CustomRoutes noLayout>
