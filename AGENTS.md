@@ -4,30 +4,44 @@
 
 CommandRM é um CRM completo construído com React, shadcn-admin-kit e Supabase. Ele fornece gerenciamento de contatos, acompanhamento de tarefas, anotações, captura de emails e gerenciamento de oportunidades com um quadro Kanban.
 
-## Regra Importante: Português Brasileiro com Acentos
+## ⚠️ REGRA ABSOLUTA: Português Brasileiro com Acentos
 
-**SEMPRE usar caracteres especiais do Português Brasileiro em todos os arquivos do projeto:**
-- Ç/ç (cedilha)
-- Ã/ã, Õ/õ (til)
-- Á/á, É/é, Í/í, Ó/ó, Ú/ú (acento agudo)
-- Â/â, Ê/ê, Ô/ô (acento circunflexo)
-- À/à (acento grave)
-- Ü/ü (trema)
+**SEMPRE usar caracteres especiais do Português Brasileiro em TODOS os arquivos do projeto. Isso é OBRIGATÓRIO e NÃO opcional.**
 
-**Exemplos corretos:**
-- ✅ Configuração, não Configuracao
-- ✅ Gerenciamento, nao Gerenciamento (errado)
-- ✅ Anotações, não Anotacoes
-- ✅ Oportunidades, não Oportunidades (sem acento errado)
-- ✅ Verificação, não Verificacao
-- ✅ Produção, não Producao
+**Caracteres que DEVEM ser usados:**
+- Ç/ç (cedilha): Configuração, Façam, Ação
+- Ã/ã, Õ/õ (til): Não, São, Então, Razão, Limões
+- Á/á, É/é, Í/í, Ó/ó, Ú/ú (acento agudo): Teléfono, Empresa, Título, Música
+- Â/â, Ê/ê, Ô/ô (acento circunflexo): Êxodo, Sôfregu, Ônibus
+- À/à (acento grave): Às, Dia, À noite
+- Ü/ü (trema): Segurança, Usuário
 
-**Isso se aplica a:**
-- Código TypeScript/JavaScript (strings, comentários)
-- Documentação (README, CHANGELOG, AGENTS.md)
+**NUNCA escrever sem acentos - SEM EXCEÇÃO:**
+- ❌ Configuracao → ✅ Configuração
+- ❌ Gerenciamento → ✅ Gerenciamento
+- ❌ Anotacoes → ✅ Anotações
+- ❌ Oportunidades → ✅ Oportunidades
+- ❌ Verificacao → ✅ Verificação
+- ❌ Producao → ✅ Produção
+- ❌ Nao → ✅ Não
+- ❌ Empresa → ✅ Empresa
+- ❌ funcao → ✅ função
+- ❌ variavel → ✅ variável
+- ❌ cabecalho → ✅ cabeçalho
+- ❌ traducao → ✅ tradução
+- ❌ voce → ✅ você
+- ❌ nao → ✅ não
+
+**Isso se aplica a TUDO:**
+- Código TypeScript/JavaScript (strings, comentários, variáveis)
+- Documentação (README, CHANGELOG, AGENTS.md, MEMORY.md)
 - Mensagens de erro e logs
 - Traduções e labels da interface
 - Commits e mensagens de commit
+- Nomes de arquivos e pastas
+- Configurações de banco de dados
+
+**ANTES de escrever qualquer coisa, VERIFIQUE se todos os caracteres especiais estão corretos.**
 
 ## Comandos de Desenvolvimento
 

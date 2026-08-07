@@ -3,23 +3,23 @@
 ### Segurança
 
 * Restringir grants do role `anon` (apenas `init_state` e `is_admin()`)
-* Remover funcao SQL `merge_contacts` morta do schema (duplicada na Edge Function)
+* Remover função SQL `merge_contacts` morta do schema (duplicada na Edge Function)
 
 ### Supabase
 
-* Deploy da Edge Function `update_password` com URL via variavel de ambiente `CRM_BASE_URL`
+* Deploy da Edge Function `update_password` com URL via variável de ambiente `CRM_BASE_URL`
 * Logs detalhados de erro na Edge Function `update_password`
 * Configurar secrets `CRM_BASE_URL`, `SB_JWT_ISSUER`, `SB_PUBLISHABLE_KEY` no Supabase remoto
 
-### Traducao
+### Tradução
 
 * Traduzir templates de email para PT-BR (`invite.html` e `recovery.html`)
-* Corrigir assunto dos emails ("You been invited" → "Voce foi convidado(a) para o CommandRM")
+* Corrigir assunto dos emails ("You been invited" → "Você foi convidado(a) para o CommandRM")
 
 ### UI
 
-* Corrigir bug do logo removido aparecendo no cabecalho (renderizar `<img>` condicionalmente)
-* Corrigir MobileDashboard, layout supabase e login-page para nao renderizar logos vazios
+* Corrigir bug do logo removido aparecendo no cabeçalho (renderizar `<img>` condicionalmente)
+* Corrigir MobileDashboard, layout supabase e login-page para não renderizar logos vazios
 
 ---
 
