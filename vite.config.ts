@@ -61,7 +61,7 @@ export default defineConfig({
     keepNames: true,
   },
   build: {
-    sourcemap: false,
+    sourcemap: true,
     rollupOptions: {
       output: {
         manualChunks: {
