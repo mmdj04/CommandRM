@@ -5,12 +5,17 @@ import { supabaseAdmin } from "../_shared/supabaseAdmin.ts";
 import { AuthMiddleware, UserMiddleware } from "../_shared/authentication.ts";
 
 async function updatePassword(user: any) {
+  const CRM_BASE_URL = Deno.env.get("CRM_BASE_URL") ?? "http://localhost:5173";
   const { data, error } = await supabaseAdmin.auth.resetPasswordForEmail(
     user.email,
+    {
+      redirectTo: `${CRM_BASE_URL}/#/set-password`,
+    },
   );
 
   if (!data || error) {
-    return createErrorResponse(500, "Internal Server Error");
+    console.error("resetPasswordForEmail error:", error);
+    return createErrorResponse(500, error?.message || "Internal Server Error");
   }
 
   return new Response(

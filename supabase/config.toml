@@ -99,11 +99,11 @@ double_confirm_changes = true
 enable_confirmations = false
 
 [auth.email.template.invite]
-subject = "You been invited to CommandRM"
+subject = "Você foi convidado(a) para o CommandRM"
 content_path = "./supabase/templates/invite.html"
 
 [auth.email.template.recovery]
-subject = "Reset your CommandRM Password"
+subject = "Redefina sua senha do CommandRM"
 content_path = "./supabase/templates/recovery.html"
 
 [auth.sms]
