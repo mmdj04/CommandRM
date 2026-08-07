@@ -11,8 +11,8 @@ CommandRM é um CRM completo construído com React, shadcn-admin-kit e Supabase.
 **Caracteres que DEVEM ser usados:**
 - Ç/ç (cedilha): Configuração, Façam, Ação
 - Ã/ã, Õ/õ (til): Não, São, Então, Razão, Limões
-- Á/á, É/é, Í/í, Ó/ó, Ú/ú (acento agudo): Teléfono, Empresa, Título, Música
-- Â/â, Ê/ê, Ô/ô (acento circunflexo): Êxodo, Sôfregu, Ônibus
+- Á/á, É/é, Í/í, Ó/ó, Ú/ú (acento agudo): Telefone, Empresa, Título, Música
+- Â/â, Ê/ê, Ô/ô (acento circunflexo): Êxodo, Sôfrego, Ônibus
 - À/à (acento grave): Às, Dia, À noite
 - Ü/ü (trema): Segurança, Usuário
 

@@ -86,7 +86,7 @@ make start-e2e-ci # Para iniciar o ambiente e2e CI (servindo o aplicativo compil
 npx playwright test --ui
 ```
 
-Você pode adicionar seus próprios testes unitários usando Jest em qualquer lugar do diretório `src`. Os arquivos de teste devem ser nomeados `*.test.tsx` ou `*.test.ts`.
+Você pode adicionar seus próprios testes unitários usando Vitest em qualquer lugar do diretório `src`. Os arquivos de teste devem ser nomeados `*.test.tsx` ou `*.test.ts`.
 E você também pode adicionar seus próprios testes e2e. Os arquivos de teste e2e devem ser colocados dentro da pasta `./e2e`
 
 ## Obtendo Atualizações

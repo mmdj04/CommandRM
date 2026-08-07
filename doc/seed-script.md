@@ -42,7 +42,7 @@ O script respeita as dependências de foreign key:
 
 As constantes no topo do script permitem ajustar:
 
-- `SALES_ID` — ID do usuário proprietário dos dados (padrão: `5`, Matheus Moraes)
+- `SALES_ID` — ID do usuário proprietário dos dados (padrão: `5` — Matheus Moraes)
 - `SUPABASE_URL` — URL do projeto Supabase
 - `SERVICE_ROLE_KEY` — Chave de serviço (bypass RLS)
 

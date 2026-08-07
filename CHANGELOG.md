@@ -18,8 +18,8 @@
 
 ### Validação
 
-* Validar formato de email no formulario de login antes de enviar ao Supabase
-* Validar senha mínima (6 caracteres) no formulario de login
+* Validar formato de email no formulário de login antes de enviar ao Supabase
+* Validar senha mínima (6 caracteres) no formulário de login
 
 ### Supabase
 
@@ -42,6 +42,15 @@
 * Adicionar script `test-data/seed.cjs` para popular dados de teste realistas via Supabase API
 * Documentação em `doc/seed-script.md` com uso, configuração e estrutura do script
 
+### Documentação
+
+* Corrigir `AGENTS.md`: `Teléfono` (espanhol) → `Telefone`, `Sôfregu` → `Sôfrego`
+* Corrigir `README.md`: referência incorreta "Jest" → "Vitest"
+* Corrigir `CHANGELOG.md`: `formulario` → `formulário` (2 ocorrências), `Fix:` → `Correção:` (3 ocorrências), adicionar backticks em nomes de arquivos
+* Corrigir `SECURITY.md`: versão suportada `1.6.x` → `1.8.x`
+* Corrigir `docs/learnings/patterns.md`: acentos faltando (`Padroes` → `Padrões`, `Indice` → `Índice`, `ate` → `até`), path hardcoded
+* Corrigir `doc/seed-script.md`: formatação do valor `5`
+
 ---
 
 ## v1.8.1 - 07/08/2026
@@ -60,18 +69,18 @@
 
 ### SEO
 
-* Atualizar referências no README.md para `mmdj04/CommandRM`
+* Atualizar referências no `README.md` para `mmdj04/CommandRM`
 * Atualizar links de demo para `command-rm.vercel.app`
 * Atualizar email de contato para `matheusmoraesdj2025@gmail.com`
 * Adicionar crédito do desenvolvedor Matheus Moraes com WhatsApp
 
 ### Documentação
 
-* Atualizar CHANGELOG.md com referências corretas ao repositório
-* Atualizar CODE_OF_CONDUCT.md com informações de contato
-* Atualizar .github/CONTRIBUTING.md com referências corretas
-* Atualizar .github/CODE_OF_CONDUCT.md com informações de contato
-* Atualizar .github/pull_request_template.md com links corretos
+* Atualizar `CHANGELOG.md` com referências corretas ao repositório
+* Atualizar `CODE_OF_CONDUCT.md` com informações de contato
+* Atualizar `.github/CONTRIBUTING.md` com referências corretas
+* Atualizar `.github/CODE_OF_CONDUCT.md` com informações de contato
+* Atualizar `.github/pull_request_template.md` com links corretos
 
 ### Configuração
 
@@ -186,9 +195,9 @@
 
 ### Correções
 
-* Fix: Corrigir imports `react-router-dom` para `react-router` em 3 arquivos
-* Fix: Corrigir ícone `Linkedin` removido do lucide-react v1.x (substituído por `ExternalLink`)
-* Fix: Corrigir compilação TypeScript após atualizações
+* Correção: Corrigir imports `react-router-dom` para `react-router` em 3 arquivos
+* Correção: Corrigir ícone `Linkedin` removido do lucide-react v1.x (substituído por `ExternalLink`)
+* Correção: Corrigir compilação TypeScript após atualizações
 * Melhorias no CRUD: formatação de moeda seguindo locale do usuário, exclusão de tags, nova visualização de vendas (SalesShow)
 * Remover emojis de todos os arquivos do projeto
 * Corrigir caracteres especiais do Português Brasileiro em toda a documentação
