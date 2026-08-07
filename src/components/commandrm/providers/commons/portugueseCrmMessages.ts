@@ -397,7 +397,7 @@ export const portugueseCrmMessages = {
       page_out_of_boundaries: "Nenhum resultado na página %{page}",
       page_out_from_end: "Última página",
       page_out_from_begin: "Primeira página",
-      page_range_info: "%{offsetBegin}-%{offsetTotal} de %{total}",
+      page_range_info: "%{offsetBegin}-%{offsetEnd} de %{total}",
       page_rows_per_page: "Linhas por página",
       page_next: "Próxima",
       page_prev: "Anterior",
