@@ -15,8 +15,8 @@ export interface ConfigurationContextValue {
   noteStatuses: NoteStatus[];
   taskTypes: LabeledValue[];
   title: string;
-  darkModeLogo: string;
-  lightModeLogo: string;
+  darkModeLogo?: string;
+  lightModeLogo?: string;
 }
 
 export const useConfigurationContext = () => {

@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { House, List, Shell } from "lucide-react";
+import { useConfigurationContext } from "@/components/commandrm/root/ConfigurationContext";
 
 /**
  * Navigation sidebar displaying menu items, allowing users to navigate between different sections of the application.
@@ -39,6 +40,7 @@ export function AppSidebar() {
   const hasDashboard = useHasDashboard();
   const resources = useResourceDefinitions();
   const { openMobile, setOpenMobile } = useSidebar();
+  const { title } = useConfigurationContext();
   const handleClick = () => {
     if (openMobile) {
       setOpenMobile(false);
@@ -55,7 +57,18 @@ export function AppSidebar() {
             >
               <Link to="/">
                 <Shell className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <div className="flex flex-col">
+                  <span className="text-base font-semibold">{title}</span>
+                  <a
+                    href="https://wa.me/5521974699723"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    desenvolvido por Matheus Moraes
+                  </a>
+                </div>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
