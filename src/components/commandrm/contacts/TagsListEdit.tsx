@@ -9,6 +9,7 @@ import {
 import { useCallback, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { getTagTextColor } from "../tags/colors";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -126,7 +127,7 @@ export const TagsListEdit = () => {
               >
                 <Badge
                   variant="secondary"
-                  className="text-sm md:text-xs font-normal text-black"
+                  className={`text-sm md:text-xs font-normal ${getTagTextColor(tag.color)}`}
                   style={{
                     backgroundColor: tag.color,
                   }}

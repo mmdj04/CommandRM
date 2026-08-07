@@ -105,6 +105,22 @@ export const DealsChart = memo(() => {
           indexBy="date"
           keys={["won", "pending", "lost"]}
           colors={["#61cdbb", "#97e3d5", "#e25c3b"]}
+          theme={{
+            axis: {
+              ticks: {
+                text: { fill: "var(--color-muted-foreground)" },
+              },
+              domain: {
+                line: { stroke: "var(--color-border)" },
+              },
+            },
+            grid: {
+              line: { stroke: "var(--color-border)" },
+            },
+            crosshair: {
+              line: { stroke: "var(--color-muted-foreground)" },
+            },
+          }}
           margin={{ top: 30, right: 50, bottom: 30, left: 0 }}
           padding={0.3}
           valueScale={{

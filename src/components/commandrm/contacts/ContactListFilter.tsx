@@ -8,6 +8,7 @@ import {
 } from "ra-core";
 import { ToggleFilterButton } from "@/components/admin/toggle-filter-button";
 import { Badge } from "@/components/ui/badge";
+import { getTagTextColor } from "../tags/colors";
 
 import { FilterCategory } from "../filters/FilterCategory";
 import { Status } from "../misc/Status";
@@ -114,7 +115,7 @@ export const ContactListFilter = () => {
               label={
                 <Badge
                   variant="secondary"
-                  className="text-black text-sm md:text-xs font-normal cursor-pointer"
+                  className={`text-sm md:text-xs font-normal cursor-pointer ${getTagTextColor(record?.color ?? "#ffffff")}`}
                   style={{
                     backgroundColor: record?.color,
                   }}

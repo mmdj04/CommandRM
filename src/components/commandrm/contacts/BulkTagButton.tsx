@@ -10,6 +10,7 @@ import {
 } from "ra-core";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { getTagTextColor } from "../tags/colors";
 import {
   Dialog,
   DialogContent,
@@ -164,7 +165,7 @@ export function BulkTagButton() {
                     >
                       <Badge
                         variant="secondary"
-                        className="font-normal text-black cursor-pointer hover:opacity-80 transition-opacity"
+                        className={`font-normal cursor-pointer hover:opacity-80 transition-opacity ${getTagTextColor(tag.color)}`}
                         style={{ backgroundColor: tag.color }}
                       >
                         {tag.name}

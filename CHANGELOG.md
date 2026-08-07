@@ -1,3 +1,30 @@
+## v1.8.3 - 07/08/2026
+
+### Tema Escuro/Claro
+
+* Corrigir componentes que não trocavam tema instantaneamente (cores hardcoded)
+* Substituir `bg-gray-*` por `bg-muted`/`bg-accent`/`bg-border` em skeletons e placeholders
+* Adicionar função `getTagTextColor()` para contraste automático texto/fundo nas tags
+* Adicionar tema Nivo (`theme` prop) no gráfico `DealsChart` para grid, eixos e crosshair
+* Corrigir thumb do slider: `bg-white` → `bg-background`
+* Corrigir `ImageEditorField`: dropzone usando cores do tema
+* Corrigir tooltip do `Status`: `bg-gray-800` → `bg-popover`
+* Corrigir `RoundButton`: `ring-gray-500` → `ring-foreground`
+
+### Arquivos Afetados
+
+* `tags/colors.ts` — adicionar `getTagTextColor()` com cálculo de luminância
+* `tags/TagChip.tsx`, `tags/RoundButton.tsx`
+* `contacts/TagsList.tsx`, `contacts/TagsListEdit.tsx`, `contacts/BulkTagButton.tsx`, `contacts/ContactListFilter.tsx`
+* `companies/GridList.tsx`
+* `simple-list/SimpleListLoading.tsx`, `simple-list/ListPlaceholder.tsx`
+* `activity/ActivityLogDealCreated.tsx`
+* `misc/ImageEditorField.tsx`, `misc/Status.tsx`
+* `dashboard/DealsChart.tsx`
+* `ui/slider.tsx`
+
+---
+
 ## v1.8.2 - 07/08/2026
 
 ### Correções de Bugs
