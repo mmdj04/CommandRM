@@ -97,13 +97,13 @@ const NavigationButton = ({
     asChild
     variant="ghost"
     className={cn(
-      "flex-col gap-0.5 h-11 px-2 rounded-md min-w-0 flex-1 max-w-[72px] justify-center",
+      "flex-col gap-0 min-h-12 px-2 rounded-md min-w-0 flex-1 max-w-[72px] justify-center overflow-visible",
       isActive ? null : "text-muted-foreground",
     )}
   >
     <Link to={href}>
-      <Icon className="size-5" />
-      <span className="text-[0.65rem] font-medium leading-tight text-center truncate w-full">
+      <Icon className="size-5 shrink-0" />
+      <span className="text-[0.65rem] font-medium leading-none text-center truncate w-full pt-0.5">
         {label}
       </span>
     </Link>
@@ -139,7 +139,7 @@ const CreateButton = () => {
           <Button
             variant="default"
             size="icon"
-            className="h-11 w-11 rounded-full shadow-lg"
+            className="h-11 w-11 rounded-full shadow-lg overflow-visible"
             aria-label={translate("ra.action.create")}
           >
             <Plus className="size-5" />
