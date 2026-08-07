@@ -1,3 +1,20 @@
+## v1.8.2 - 07/08/2026
+
+### Correções de Bugs
+
+* Corrigir Edge Function `update_password`: remover lógica de retry que agravava rate limits (429)
+* Corrigir Edge Function `update_password`: retornar erro 429 claro quando email rate limit é atingido
+* Corrigir Edge Function `users`: adicionar `.select("*")` em `updateSaleDisabled` para retornar dados
+* Adicionar `beforeDelete` no dataProvider Supabase para `sales`: reatribuir empresas, contatos, anotações de contatos, oportunidades e anotações de oportunidades antes de excluir
+* Resolver conflitos de foreign key ao excluir usuários (409 Conflict)
+
+### Supabase
+
+* Deploy das Edge Functions `update_password` e `users` com correções
+* Remover retry desnecessário que causava cascata de 429s
+
+---
+
 ## v1.8.1 - 07/08/2026
 
 ### Performance

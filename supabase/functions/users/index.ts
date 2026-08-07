@@ -9,7 +9,8 @@ async function updateSaleDisabled(user_id: string, disabled: boolean) {
   return await supabaseAdmin
     .from("sales")
     .update({ disabled: disabled ?? false })
-    .eq("user_id", user_id);
+    .eq("user_id", user_id)
+    .select("*");
 }
 
 async function updateSaleAdministrator(

@@ -299,6 +299,68 @@ const lifeCycleCallbacks: ResourceCallbacks[] = [
       }
       return data;
     },
+    beforeDelete: async (params) => {
+      if (params.meta?.identity?.id == null) {
+        throw new Error("Identity MUST be set in meta");
+      }
+
+      const newSaleId = params.meta.identity.id as Identifier;
+      const baseDataProvider = getBaseDataProvider();
+
+      const [companies, contacts, contactNotes, deals, dealNotes] =
+        await Promise.all([
+          baseDataProvider.getList("companies", {
+            filter: { sales_id: params.id },
+            pagination: { page: 1, perPage: 10_000 },
+            sort: { field: "id", order: "ASC" },
+          }),
+          baseDataProvider.getList("contacts", {
+            filter: { sales_id: params.id },
+            pagination: { page: 1, perPage: 10_000 },
+            sort: { field: "id", order: "ASC" },
+          }),
+          baseDataProvider.getList("contact_notes", {
+            filter: { sales_id: params.id },
+            pagination: { page: 1, perPage: 10_000 },
+            sort: { field: "id", order: "ASC" },
+          }),
+          baseDataProvider.getList("deals", {
+            filter: { sales_id: params.id },
+            pagination: { page: 1, perPage: 10_000 },
+            sort: { field: "id", order: "ASC" },
+          }),
+          baseDataProvider.getList("deal_notes", {
+            filter: { sales_id: params.id },
+            pagination: { page: 1, perPage: 10_000 },
+            sort: { field: "id", order: "ASC" },
+          }),
+        ]);
+
+      await Promise.all([
+        baseDataProvider.updateMany("companies", {
+          ids: companies.data.map((c) => c.id),
+          data: { sales_id: newSaleId },
+        }),
+        baseDataProvider.updateMany("contacts", {
+          ids: contacts.data.map((c) => c.id),
+          data: { sales_id: newSaleId },
+        }),
+        baseDataProvider.updateMany("contact_notes", {
+          ids: contactNotes.data.map((c) => c.id),
+          data: { sales_id: newSaleId },
+        }),
+        baseDataProvider.updateMany("deals", {
+          ids: deals.data.map((d) => d.id),
+          data: { sales_id: newSaleId },
+        }),
+        baseDataProvider.updateMany("deal_notes", {
+          ids: dealNotes.data.map((d) => d.id),
+          data: { sales_id: newSaleId },
+        }),
+      ]);
+
+      return params;
+    },
   },
   {
     resource: "contacts",

@@ -4,58 +4,37 @@ import { createErrorResponse } from "../_shared/utils.ts";
 import { supabaseAdmin } from "../_shared/supabaseAdmin.ts";
 import { AuthMiddleware, UserMiddleware } from "../_shared/authentication.ts";
 
-const MAX_RETRIES = 3;
-const INITIAL_RETRY_DELAY_MS = 1000;
-
-async function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 async function updatePassword(user: any) {
   const CRM_BASE_URL = Deno.env.get("CRM_BASE_URL") ?? "http://localhost:5173";
 
-  let lastError: any = null;
+  const { data, error } = await supabaseAdmin.auth.resetPasswordForEmail(
+    user.email,
+    {
+      redirectTo: `${CRM_BASE_URL}/#/set-password`,
+    },
+  );
 
-  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-    const { data, error } = await supabaseAdmin.auth.resetPasswordForEmail(
-      user.email,
-      {
-        redirectTo: `${CRM_BASE_URL}/#/set-password`,
-      },
-    );
-
-    if (!error) {
-      return new Response(JSON.stringify({ data }), {
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      });
-    }
-
-    lastError = error;
-
+  if (error) {
     const isRateLimit =
       error.message?.includes("rate limit") ||
       error.message?.includes("429") ||
       error.status === 429;
 
-    if (!isRateLimit) {
-      console.error("resetPasswordForEmail error (non-retryable):", error);
-      return createErrorResponse(500, error.message || "Internal Server Error");
+    if (isRateLimit) {
+      console.warn("Email rate limit hit for user:", user.id);
+      return createErrorResponse(
+        429,
+        "Muitas solicitações de redefinição de senha. Aguarde alguns minutos e tente novamente.",
+      );
     }
 
-    if (attempt < MAX_RETRIES) {
-      const delay = INITIAL_RETRY_DELAY_MS * Math.pow(2, attempt - 1);
-      console.warn(
-        `Rate limit hit on attempt ${attempt}/${MAX_RETRIES}, retrying in ${delay}ms...`,
-      );
-      await sleep(delay);
-    }
+    console.error("resetPasswordForEmail error:", error);
+    return createErrorResponse(500, error.message || "Internal Server Error");
   }
 
-  console.error("resetPasswordForEmail failed after all retries:", lastError);
-  return createErrorResponse(
-    429,
-    "Muitas solicitações. Aguarde alguns minutos e tente novamente.",
-  );
+  return new Response(JSON.stringify({ data }), {
+    headers: { "Content-Type": "application/json", ...corsHeaders },
+  });
 }
 
 Deno.serve(async (req: Request) =>
