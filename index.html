@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" translate="no" class="notranslate">
+<html lang="pt-BR" translate="no" class="notranslate">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -11,6 +11,9 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="description" content="CommandRM - Sistema CRM completo para gerenciamento de contatos, empresas, oportunidades e tarefas. Desenvolvido por Matheus Moraes." />
+    <meta name="keywords" content="CRM, gerenciamento de contatos, empresas, oportunidades, tarefas, vendas" />
+    <meta name="author" content="Matheus Moraes" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="shortcut icon" href="./favicon.ico" />
     <link rel="apple-touch-icon" sizes="40x40" href="./appIcon/40.png" />
@@ -28,7 +31,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./appIcon/180.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="./appIcon/192.png" />
     <link rel="apple-touch-icon" sizes="1024x1024" href="./appIcon/1024.png" />
-    <title>CommandRM</title>
+    <link rel="preconnect" href="https://wrszvrdzmgfrgkbdhrfw.supabase.co" crossorigin />
+    <link rel="dns-prefetch" href="https://wrszvrdzmgfrgkbdhrfw.supabase.co" />
+    <title>CommandRM - Sistema CRM Completo</title>
 
     <style>
       body {
@@ -138,11 +143,13 @@
   </head>
   <body>
     <div id="root">
-      <div class="loader-container">
-        <div class="loader">Loading...</div>
-      </div>
+      <main>
+        <div class="loader-container">
+          <div class="loader">Loading...</div>
+        </div>
+      </main>
     </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <script type="module" src="<%= mainScript %>"></script>
+    <script type="module" src="<%= mainScript %>" defer></script>
   </body>
 </html>

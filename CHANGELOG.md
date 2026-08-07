@@ -4,12 +4,37 @@
 
 * Restringir grants do role `anon` (apenas `init_state` e `is_admin()`)
 * Remover função SQL `merge_contacts` morta do schema (duplicada na Edge Function)
+* Adicionar `vercel.json` com headers de segurança (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy)
+* Configurar cache imutável para assets estáticos (1 ano)
 
 ### Supabase
 
 * Deploy da Edge Function `update_password` com URL via variável de ambiente `CRM_BASE_URL`
 * Logs detalhados de erro na Edge Function `update_password`
 * Configurar secrets `CRM_BASE_URL`, `SB_JWT_ISSUER`, `SB_PUBLISHABLE_KEY` no Supabase remoto
+* Melhorar tratamento de erros no `update_password` com retry automático para rate limits (429)
+
+### Performance
+
+* Adicionar code splitting com `manualChunks` para vendor, ra-core, UI, charts e utils
+* Configurar Terser minification com `drop_console` e `drop_debugger`
+* Adicionar preconnect e DNS-prefetch para Supabase
+* Adicionar `defer` no script principal para reduzir render-blocking resources
+
+### Acessibilidade
+
+* Adicionar `<main>` landmark no HTML para pontuação 100/100
+
+### SEO
+
+* Adicionar meta description, keywords e author
+* Configurar idioma `pt-BR` no HTML e manifest
+* Atualizar título para "CommandRM - Sistema CRM Completo"
+
+### PWA
+
+* Adicionar descrição e categories no manifest.json
+* Configurar lang `pt-BR` no manifest
 
 ### Tradução
 

@@ -62,6 +62,36 @@ export default defineConfig({
   },
   build: {
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: [
+            "react",
+            "react-dom",
+            "react-router",
+            "react-router-dom",
+          ],
+          ra: ["ra-core", "ra-i18n-polyglot"],
+          ui: [
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-popover",
+            "@radix-ui/react-select",
+            "@radix-ui/react-tabs",
+          ],
+          charts: ["recharts", "@nivo/bar"],
+          utils: ["date-fns", "lodash", "clsx", "tailwind-merge"],
+        },
+      },
+    },
+    target: "es2020",
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
   },
   resolve: {
     preserveSymlinks: true,
