@@ -4,7 +4,7 @@
 
 * Implementar lazy loading com `React.lazy` para todas as rotas (reduz JavaScript não utilizado em ~400 KiB)
 * Adicionar `<Suspense>` com fallback "Carregando..." para carregamento assíncrono
-* Desabilitar sourcemaps em produção para reduzir tamanho do bundle
+* Habilitar source maps para JavaScript grande (depuração em produção)
 * Mover `<main>` landmark para dentro do React App (correção do Accessibility 100/100)
 
 ### Acessibilidade
