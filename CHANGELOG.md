@@ -8,6 +8,10 @@
 * Adicionar `beforeDelete` no dataProvider Supabase para `sales`: reatribuir empresas, contatos, anotações de contatos, oportunidades e anotações de oportunidades antes de excluir
 * Resolver conflitos de foreign key ao excluir usuários (409 Conflict)
 
+### Correções de Interface
+
+* Corrigir props `dashboard` e `layout` no CRM.tsx: wrapper function incorreta impedia renderização do Painel de Controle
+
 ### Performance
 
 * Suspense granular por rota no DesktopAdmin e MobileAdmin (remove tela branca "Carregando" na carga inicial)
