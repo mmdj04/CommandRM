@@ -123,6 +123,7 @@ const ContactMergeDialog = ({ open, onClose }: ContactMergeDialogProps) => {
   useEffect(() => {
     if (matchingContacts && matchingContacts.length > 0) {
       const suggestedWinnerId = matchingContacts[0].id;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSuggestedWinnerId(suggestedWinnerId);
       setWinnerId(suggestedWinnerId);
     }

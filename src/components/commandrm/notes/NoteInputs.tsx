@@ -43,6 +43,7 @@ export const NoteInputs = ({
   const isExpanded = isFocused || !!textValue;
   useEffect(() => {
     if (!textValue) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsFocused(false);
       const textarea = containerRef.current?.querySelector("textarea");
       if (textarea) {

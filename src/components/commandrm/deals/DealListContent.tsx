@@ -22,6 +22,7 @@ export const DealListContent = () => {
     if (unorderedDeals) {
       const newDealsByStage = getDealsByStage(unorderedDeals, dealStages);
       if (!isEqual(newDealsByStage, dealsByStage)) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setDealsByStage(newDealsByStage);
       }
     }

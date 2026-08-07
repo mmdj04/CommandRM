@@ -15,7 +15,7 @@ const Header = () => {
   const location = useLocation();
   const translate = useTranslate();
 
-  let currentPath: string | boolean = "/";
+  let currentPath: string | boolean;
   if (matchPath("/", location.pathname)) {
     currentPath = "/";
   } else if (matchPath("/contacts/*", location.pathname)) {

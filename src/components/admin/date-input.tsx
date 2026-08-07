@@ -96,8 +96,10 @@ export const DateInput = (props: DateInputProps) => {
   });
   const localInputRef = React.useRef<HTMLInputElement>(null);
   // DateInput is not a really controlled input to ensure users can start entering a date, go to another input and come back to complete it.
-  // This ref stores the value that is passed to the input defaultValue prop to solve this issue.
-  const initialDefaultValueRef = React.useRef(field.value);
+  // This state stores the value that is passed to the input defaultValue prop to solve this issue.
+  const [initialDefaultValue, setInitialDefaultValue] = React.useState(
+    field.value,
+  );
   // As the defaultValue prop won't trigger a remount of the HTML input, we will force it by changing the key.
   const [inputKey, setInputKey] = React.useState(1);
   // This ref let us track that the last change of the form state value was made by the input itself
@@ -119,7 +121,7 @@ export const DateInput = (props: DateInputProps) => {
 
     if (hasNewValueFromForm) {
       // The value has changed from outside the input, we update the input value
-      initialDefaultValueRef.current = field.value;
+      setInitialDefaultValue(field.value);
       // Trigger a remount of the HTML input
       setInputKey((r) => r + 1);
       // Resets the flag to ensure futures changes are handled
@@ -193,17 +195,7 @@ export const DateInput = (props: DateInputProps) => {
   });
 
   const { ref, name } = field;
-  const inputRef = React.useCallback(
-    (node: HTMLInputElement | null) => {
-      if (typeof ref === "function") {
-        ref(node);
-      } else if (ref && node) {
-        (ref as React.MutableRefObject<HTMLInputElement | null>).current = node;
-      }
-      localInputRef.current = node;
-    },
-    [ref],
-  );
+  const inputRef = useForkRef(ref, localInputRef);
 
   return (
     <FormField id={id} className={className} name={name}>
@@ -220,7 +212,7 @@ export const DateInput = (props: DateInputProps) => {
       <FormControl>
         <Input
           ref={inputRef}
-          defaultValue={format(initialDefaultValueRef.current) ?? ""}
+          defaultValue={format(initialDefaultValue) ?? ""}
           key={inputKey}
           type="date"
           onChange={handleChange}
@@ -264,6 +256,65 @@ const convertDateToString = (value: Date) => {
 };
 
 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * Imported from material-ui
+ * Merges refs into a single memoized callback ref or `null`.
+ *
+ * @param {Array<React.Ref<Instance> | undefined>} refs The ref array.
+ * @returns {React.RefCallback<Instance> | null} The new ref callback.
+ */
+function useForkRef<Instance>(
+  ...refs: Array<React.Ref<Instance> | undefined>
+): React.RefCallback<Instance> | null {
+  const cleanupRef = React.useRef<() => void>(undefined);
+
+  const refEffect = React.useCallback((instance: Instance) => {
+    const cleanups = refs.map((ref) => {
+      if (ref == null) {
+        return null;
+      }
+
+      if (typeof ref === "function") {
+        const refCallback = ref;
+        const refCleanup: void | (() => void) = refCallback(instance);
+        return typeof refCleanup === "function"
+          ? refCleanup
+          : () => {
+              refCallback(null);
+            };
+      }
+
+      ref.current = instance;
+      return () => {
+        ref.current = null;
+      };
+    });
+
+    return () => {
+      cleanups.forEach((refCleanup) => refCleanup?.());
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/use-memo
+  }, refs);
+
+  return React.useMemo(() => {
+    if (refs.every((ref) => ref == null)) {
+      return null;
+    }
+
+    return (value) => {
+      if (cleanupRef.current) {
+        cleanupRef.current();
+        cleanupRef.current = undefined;
+      }
+
+      if (value != null) {
+        cleanupRef.current = refEffect(value);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/use-memo
+  }, refs);
+}
 
 /**
  * Convert a form state value to a date string for the `<input type="date">` value.

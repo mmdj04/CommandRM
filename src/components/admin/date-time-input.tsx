@@ -70,8 +70,10 @@ export const DateTimeInput = ({
   });
   const localInputRef = React.useRef<HTMLInputElement>(undefined);
   // DateInput is not a really controlled input to ensure users can start entering a date, go to another input and come back to complete it.
-  // This ref stores the value that is passed to the input defaultValue prop to solve this issue.
-  const initialDefaultValueRef = React.useRef(field.value);
+  // This state stores the value that is passed to the input defaultValue prop to solve this issue.
+  const [initialDefaultValue, setInitialDefaultValue] = React.useState(
+    field.value,
+  );
   // As the defaultValue prop won't trigger a remount of the HTML input, we will force it by changing the key.
   const [inputKey, setInputKey] = React.useState(1);
   // This ref let us track that the last change of the form state value was made by the input itself
@@ -93,7 +95,7 @@ export const DateTimeInput = ({
 
     if (hasNewValueFromForm) {
       // The value has changed from outside the input, we update the input value
-      initialDefaultValueRef.current = field.value;
+      setInitialDefaultValue(field.value);
       // Trigger a remount of the HTML input
       setInputKey((r) => r + 1);
       // Resets the flag to ensure futures changes are handled
@@ -180,7 +182,7 @@ export const DateTimeInput = ({
           id={id}
           ref={inputRef}
           name={name}
-          defaultValue={format(initialDefaultValueRef.current)}
+          defaultValue={format(initialDefaultValue)}
           key={inputKey}
           type="datetime-local"
           onChange={handleChange}
@@ -307,7 +309,7 @@ function useForkRef<Instance>(
     return () => {
       cleanups.forEach((refCleanup) => refCleanup?.());
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/use-memo
   }, refs);
 
   return React.useMemo(() => {
@@ -325,7 +327,6 @@ function useForkRef<Instance>(
         cleanupRef.current = refEffect(value);
       }
     };
-    // TODO: uncomment once we enable eslint-plugin-react-compiler // eslint-disable-next-line react-compiler/react-compiler -- intentionally ignoring that the dependency array must be an array literal
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/use-memo
   }, refs);
 }

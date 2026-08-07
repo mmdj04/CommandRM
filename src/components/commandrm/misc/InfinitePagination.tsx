@@ -56,6 +56,7 @@ export const InfinitePagination = ({
   useEffect(() => {
     // Whenever the query is unpaused, reset the requested next page state
     if (!isPaused) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setHasRequestedNextPage(false);
     }
   }, [isPaused]);

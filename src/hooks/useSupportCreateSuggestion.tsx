@@ -1,12 +1,6 @@
 import * as React from "react";
 import type { ChangeEvent, ReactElement } from "react";
-import {
-  createContext,
-  isValidElement,
-  useContext,
-  useRef,
-  useState,
-} from "react";
+import { createContext, isValidElement, useContext, useState } from "react";
 import type { Identifier, OptionText } from "ra-core";
 import { useTranslate } from "ra-core";
 import set from "lodash/set";
@@ -49,13 +43,13 @@ export const useSupportCreateSuggestion = <T = unknown,>(
 
   const translate = useTranslate();
   const [renderOnCreate, setRenderOnCreate] = useState(false);
-  const filterRef = useRef(filter);
+  const [currentFilter, setCurrentFilter] = useState(filter);
 
   return {
     createId: createValue,
     createHintId: createHintValue,
     getCreateItem: (filter?: string) => {
-      filterRef.current = filter;
+      setCurrentFilter(filter);
 
       return set(
         {
@@ -104,7 +98,7 @@ export const useSupportCreateSuggestion = <T = unknown,>(
       renderOnCreate && isValidElement(create) ? (
         <CreateSuggestionContext.Provider
           value={{
-            filter: filterRef.current,
+            filter: currentFilter,
             onCancel: () => setRenderOnCreate(false),
             onCreate: (item) => {
               setRenderOnCreate(false);

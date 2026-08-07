@@ -1,5 +1,11 @@
 import { SaveIcon } from "lucide-react";
-import { useEffect, useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
+import {
+  useEffect,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 import { useTranslate } from "ra-core";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -52,6 +58,7 @@ export function TagForm({
       return;
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setNewTagName(tag?.name ?? "");
     setNewTagColor(tag?.color ?? colors[0]);
     setIsSubmitting(false);

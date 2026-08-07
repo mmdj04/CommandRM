@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ReactNode } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo } from "react";
 import type { InferredTypeMap } from "ra-core";
 import {
   EditBase,
@@ -54,42 +53,46 @@ const EditViewGuesser = (props: EditGuesserProps) => {
   }
 
   const { record } = useEditContext();
-  const [child, setChild] = useState<ReactNode>(null);
   const { enableLog = process.env.NODE_ENV === "development", ...rest } = props;
 
-  useEffect(() => {
-    setChild(null);
-  }, [resource]);
+  const child = useMemo(() => {
+    if (!record) return null;
+    const inferredElements = getElementsFromRecords([record], editFieldTypes);
+    const inferredChild = new InferredElement(
+      editFieldTypes.form,
+      null,
+      inferredElements,
+    );
+    return inferredChild.getElement();
+  }, [record]);
 
   useEffect(() => {
-    if (record && !child) {
-      const inferredElements = getElementsFromRecords([record], editFieldTypes);
-      const inferredChild = new InferredElement(
-        editFieldTypes.form,
-        null,
-        inferredElements,
-      );
-      setChild(inferredChild.getElement());
+    if (!record || !enableLog) return;
 
-      if (!enableLog) return;
+    const inferredElements = getElementsFromRecords([record], editFieldTypes);
+    const inferredChild = new InferredElement(
+      editFieldTypes.form,
+      null,
+      inferredElements,
+    );
 
-      const representation = inferredChild.getRepresentation();
+    const representation = inferredChild.getRepresentation();
 
-      const components = ["Edit"]
-        .concat(
-          Array.from(
-            new Set(
-              Array.from(representation.matchAll(/<([^/\s>]+)/g))
-                .map((match) => match[1])
-                .filter((component) => component !== "span"),
-            ),
+    const components = ["Edit"]
+      .concat(
+        Array.from(
+          new Set(
+            Array.from(representation.matchAll(/<([^/\s>]+)/g))
+              .map((match) => match[1])
+              .filter((component) => component !== "span"),
           ),
-        )
-        .sort();
+        ),
+      )
+      .sort();
 
-      // eslint-disable-next-line no-console
-      console.log(
-        `Guessed Edit:
+    // eslint-disable-next-line no-console
+    console.log(
+      `Guessed Edit:
 
 ${components
   .map(
@@ -105,9 +108,8 @@ export const ${capitalize(singularize(resource))}Edit = () => (
 ${representation}
     </Edit>
 );`,
-      );
-    }
-  }, [record, child, resource, enableLog]);
+    );
+  }, [record, resource, enableLog]);
 
   return <EditView {...rest}>{child}</EditView>;
 };

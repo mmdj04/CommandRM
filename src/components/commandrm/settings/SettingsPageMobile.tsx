@@ -277,6 +277,7 @@ const InlineEditRow = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setEditValue(value);
   }, [value]);
 

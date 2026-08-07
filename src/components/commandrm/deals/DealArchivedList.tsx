@@ -29,11 +29,13 @@ export const DealArchivedList = () => {
 
   useEffect(() => {
     if (!isPending && total === 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setOpenDialog(false);
     }
   }, [isPending, total]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setOpenDialog(false);
   }, [archivedLists]);
 

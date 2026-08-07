@@ -55,6 +55,7 @@ export function BulkTagButton() {
 
   useEffect(() => {
     if (!selectedIds.length && open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       closeDialog();
     }
   }, [closeDialog, open, selectedIds.length]);

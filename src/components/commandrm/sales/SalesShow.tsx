@@ -7,7 +7,6 @@ import type { Sale } from "../types";
 
 const SaleTitle = () => {
   const record = useRecordContext<Sale>();
-  const translate = useTranslate();
   if (!record) return null;
   return (
     <h2 className="text-lg font-semibold mb-4">

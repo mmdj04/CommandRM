@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ReactNode } from "react";
-import { useEffect, useState, isValidElement, Children } from "react";
+import { useEffect, useMemo, isValidElement, Children } from "react";
 import type { InferredTypeMap } from "ra-core";
 import {
   ShowBase,
@@ -47,43 +46,47 @@ const ShowViewGuesser = (props: ShowGuesserProps) => {
   }
 
   const { record } = useShowContext();
-  const [child, setChild] = useState<ReactNode>(null);
   const { enableLog = process.env.NODE_ENV === "development", ...rest } = props;
 
-  useEffect(() => {
-    setChild(null);
-  }, [resource]);
+  const child = useMemo(() => {
+    if (!record) return null;
+    const inferredElements = getElementsFromRecords([record], showFieldTypes);
+    const inferredChild = new InferredElement(
+      showFieldTypes.show,
+      null,
+      inferredElements,
+    );
+    return inferredChild.getElement();
+  }, [record]);
 
   useEffect(() => {
-    if (record && !child) {
-      const inferredElements = getElementsFromRecords([record], showFieldTypes);
-      const inferredChild = new InferredElement(
-        showFieldTypes.show,
-        null,
-        inferredElements,
-      );
-      setChild(inferredChild.getElement());
+    if (!record || !enableLog) return;
 
-      if (!enableLog) return;
+    const inferredElements = getElementsFromRecords([record], showFieldTypes);
+    const inferredChild = new InferredElement(
+      showFieldTypes.show,
+      null,
+      inferredElements,
+    );
 
-      const representation = inferredChild.getRepresentation();
-      const components = ["Show"]
-        .concat(
-          Array.from(
-            new Set(
-              Array.from(representation.matchAll(/<([^/\s>]+)/g))
-                .map((match) => match[1])
-                .filter(
-                  (component) => component !== "span" && component !== "div",
-                ),
-            ),
+    const representation = inferredChild.getRepresentation();
+    const components = ["Show"]
+      .concat(
+        Array.from(
+          new Set(
+            Array.from(representation.matchAll(/<([^/\s>]+)/g))
+              .map((match) => match[1])
+              .filter(
+                (component) => component !== "span" && component !== "div",
+              ),
           ),
-        )
-        .sort();
+        ),
+      )
+      .sort();
 
-      // eslint-disable-next-line no-console
-      console.log(
-        `Guessed Show:
+    // eslint-disable-next-line no-console
+    console.log(
+      `Guessed Show:
 
 ${components
   .map(
@@ -99,9 +102,8 @@ export const ${capitalize(singularize(resource))}Show = () => (
 ${inferredChild.getRepresentation()}
     </Show>
 );`,
-      );
-    }
-  }, [record, child, resource, enableLog]);
+    );
+  }, [record, resource, enableLog]);
 
   return <ShowView {...rest}>{child}</ShowView>;
 };

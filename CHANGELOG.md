@@ -18,6 +18,14 @@
 * Atualizar **prettier** para v3.9.6
 * Atualizar **tldts** para v7.4.10
 * Adicionar **react-router-dom** v7.18.2 (necessário para ra-core)
+* Atualizar **React** para v19.2.8
+* Atualizar **vitest** para v4.1.10 (corrigir 5 vulnerabilidades críticas)
+* Atualizar **ESLint** de v9 para v10 (migrar `.eslintignore` para `eslint.config.js`)
+* Atualizar **@eslint/js** de v9 para v10
+* Atualizar **shadcn CLI** de v3 para v4
+* Atualizar **recharts** de v3.8 para v3.10
+* Atualizar **vite-plugin-pwa** para v1.3.0
+* Atualizar dependências do **/doc** (sharp, astro, starlight, postcss, js-yaml, svgo)
 
 ### Componentes shadcn UI
 
@@ -32,15 +40,35 @@
 * Atualizar **eslint-plugin-storybook** para v10.5.7
 * Remover pacotes deprecados: @storybook/addon-essentials, @storybook/blocks, @storybook/icons, @storybook/addon-mcp
 
+### Rebrand
+
+* Renomear projeto de Atomic CRM para CommandRM (diretórios, imports, títulos, i18n, templates de email, configs Supabase, documentação)
+
 ### Correções
 
 * Fix: Corrigir imports `react-router-dom` para `react-router` em 3 arquivos
 * Fix: Corrigir ícone `Linkedin` removido do lucide-react v1.x (substituído por `ExternalLink`)
 * Fix: Corrigir compilação TypeScript após atualizações
+* Melhorias no CRUD: formatação de moeda seguindo locale do usuário, exclusão de tags, nova visualização de vendas (SalesShow)
+* Remover emojis de todos os arquivos do projeto
+* Corrigir caracteres especiais do Português Brasileiro em toda a documentação
+* Corrigir erros de lint do React Hooks (refs, imutabilidade, useMemo)
+
+### CI/CD
+
+* Atualizar **actions/checkout** de v4 para v7
+* Atualizar **actions/setup-node** de v4 para v7
+* Atualizar **wearerequired/lint-action** de v2 para v3
+* Atualizar **github/codeql-action** de v3 para v4
+* Atualizar **supabase/setup-cli** de v1 para v3
 
 ### Segurança
 
 * Reduzir vulnerabilidades de 19 para 2 (remanescentes: react-router 7.12-8.2.0)
+* Configurar **Dependabot** para atualizações automáticas de dependências
+* Configurar **CodeQL** para análise de código estática
+* Adicionar **dependency review** workflow para pull requests
+* Adicionar `SECURITY.md` com política de relatório de vulnerabilidades
 
 ---
 

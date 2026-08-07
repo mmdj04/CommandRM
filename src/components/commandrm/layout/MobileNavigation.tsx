@@ -8,7 +8,13 @@ import {
 import { cn } from "@/lib/utils";
 import { Home, ListTodo, Plus, Settings, Users } from "lucide-react";
 import { useTranslate } from "ra-core";
-import { Link, matchPath, useLocation, useMatch, useNavigate } from "react-router";
+import {
+  Link,
+  matchPath,
+  useLocation,
+  useMatch,
+  useNavigate,
+} from "react-router";
 import { ContactCreateSheet } from "../contacts/ContactCreateSheet";
 import { useState } from "react";
 import { NoteCreateSheet } from "../notes/NoteCreateSheet";
@@ -18,7 +24,7 @@ export const MobileNavigation = () => {
   const location = useLocation();
   const translate = useTranslate();
 
-  let currentPath: string | boolean = "/";
+  let currentPath: string | boolean;
   if (matchPath("/", location.pathname)) {
     currentPath = "/";
   } else if (matchPath("/contacts/*", location.pathname)) {
