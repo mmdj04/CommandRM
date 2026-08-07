@@ -71,6 +71,7 @@
 * Login: adicionar crédito do desenvolvedor na tela de fundo
 * Remover logotipo padrão (clientes personalizam nome e imagem)
 * Navegação mobile: espaçamento responsivo com flex-1, botão "+" reduzido de 64px para 48px
+* Navegação mobile: impedir corte do texto nos botões (overflow-visible, min-h-12)
 * Fonte **Inter Variable** servida localmente via @fontsource (7 arquivos woff2, ~180KB total)
 
 ### CI/CD
