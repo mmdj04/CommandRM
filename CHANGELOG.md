@@ -36,13 +36,21 @@
 
 * Atualizar **Storybook** de v9.1.19 para **v10.5.7** (última versão)
 * Atualizar **@storybook/react-vite** para v10.5.7
-* Atualizar **@storybook/addon-links** para v10.5.7
+* Adicionar **@storybook/addon-links** v10.5.7
 * Atualizar **eslint-plugin-storybook** para v10.5.7
-* Remover pacotes deprecados: @storybook/addon-essentials, @storybook/blocks, @storybook/icons, @storybook/addon-mcp
 
 ### Rebrand
 
 * Renomear projeto de Atomic CRM para CommandRM (diretórios, imports, títulos, i18n, templates de email, configs Supabase, documentação)
+
+### Localização (PT-BR)
+
+* Traduzir ~100+ strings hardcoded em inglês para Português Brasileiro em ~30 arquivos de componentes
+* Traduzir labels de configuração do banco de dados (noteStatuses, taskTypes, dealStages, companySectors, dealCategories)
+* Adicionar traduções de ordenação (ra.sort.sort_by, ra.sort.ASC, ra.sort.DESC)
+* Adicionar locale date-fns para datas relativas ("hoje às", "há 3 dias")
+* Traduzir ThemeModeToggle (Claro/Escuro/Sistema)
+* Atualizar testes i18n para incluir locale pt-BR (i18nProvider, ContactShow, NoteInputs)
 
 ### Correções
 
