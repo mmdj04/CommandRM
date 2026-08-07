@@ -70,6 +70,8 @@
 * Sidebar: adicionar crédito "desenvolvido por Matheus Moraes" com link WhatsApp (+55 21 97469-9723)
 * Login: adicionar crédito do desenvolvedor na tela de fundo
 * Remover logotipo padrão (clientes personalizam nome e imagem)
+* Navegação mobile: espaçamento responsivo com flex-1, botão "+" reduzido de 64px para 48px
+* Fonte **Inter Variable** servida localmente via @fontsource (7 arquivos woff2, ~180KB total)
 
 ### CI/CD
 
