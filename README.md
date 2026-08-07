@@ -4,7 +4,7 @@ Um CRM completo construído com React, shadcn-admin-kit e Supabase.
 
 <https://github.com/user-attachments/assets/0d7554b5-49ef-41c6-bcc9-a76214fc5c99>
 
-CommandRM é gratuito e de código aberto. Você pode testar online em <https://marmelab.com/commandrm-demo>.
+CommandRM é gratuito e de código aberto. Você pode testar online em <https://command-rm.vercel.app>.
 
 ## Funcionalidades
 
@@ -27,16 +27,16 @@ Para executar este projeto localmente, você precisará das seguintes ferramenta
 - Node 22 LTS
 - Docker (necessário para o Supabase)
 
-Fork o repositório [`marmelab/commandrm`](https://github.com/marmelab/commandrm) para o seu usuário/organização e clone-o localmente:
+Fork o repositório [`mmdj04/CommandRM`](https://github.com/mmdj04/CommandRM) para o seu usuário/organização e clone-o localmente:
 
 ```sh
-git clone https://github.com/[username]/commandrm.git
+git clone https://github.com/[username]/CommandRM.git
 ```
 
 Instale as dependências:
 
 ```sh
-cd commandrm
+cd CommandRM
 make install
 ```
 
@@ -61,7 +61,7 @@ Se precisar depurar o backend, você pode acessar os seguintes serviços:
 
 ## Documentação
 
-A documentação do usuário e desenvolvedor para este projeto está disponível [no diretório `doc/`](./doc/). Você também pode ler online em [https://marmelab.com/commandrm/doc/](https://marmelab.com/commandrm/doc/).
+A documentação do usuário e desenvolvedor para este projeto está disponível [no diretório `doc/`](./doc/).
 
 ## Testando Alterações
 
@@ -94,7 +94,7 @@ E você também pode adicionar seus próprios testes e2e. Os arquivos de teste e
 Os componentes do CommandRM são publicados como um arquivo de Registro Shadcn. Isso significa que você pode atualizar sua instalação chamando o seguinte comando:
 
 ```sh
-npx shadcn add https://marmelab.com/commandrm/r/commandrm.json -o
+npx shadcn add https://command-rm.vercel.app/r/commandrm.json -o
 ```
 
 ## Registro
@@ -102,11 +102,21 @@ npx shadcn add https://marmelab.com/commandrm/r/commandrm.json -o
 O arquivo de Registro é mantido atualizado quando arquivos são adicionados ou removidos:
 
 - O arquivo `registry.json` é gerado automaticamente pelo script `scripts/generate-registry.mjs` como um hook pre-commit.
-- O arquivo `http://marmelab.com/commandrm/r/commandrm.json` é publicado automaticamente pelo pipeline CI/CD
+- O arquivo `http://command-rm.vercel.app/r/commandrm.json` é publicado automaticamente pelo pipeline CI/CD
 
 > [!WARNING]
 > Se o `registry.json` faltar algumas alterações que você fez, você DEVE atualizar o `scripts/generate-registry.mjs` para incluir essas alterações.
 
+## Contribuindo
+
+Contribuições são bem-vindas! Por favor, leia nosso [guia de contribuição](./.github/CONTRIBUTING.md) antes de enviar um Pull Request.
+
 ## Licença
 
-Este projeto é licenciado sob a Licença MIT, cortesia da [Marmelab](https://marmelab.com). Veja o arquivo [LICENSE.md](./LICENSE.md) para detalhes.
+Este projeto é licenciado sob a Licença MIT. Veja o arquivo [LICENSE.md](./LICENSE.md) para detalhes.
+
+## Desenvolvido por
+
+**Matheus Moraes**
+- WhatsApp: [+55 21 97469-9723](https://wa.me/5521974699723)
+- GitHub: [mmdj04](https://github.com/mmdj04)

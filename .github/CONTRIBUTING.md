@@ -1,11 +1,11 @@
 # Contributing
 
-So you want to contribute to commandrm? Awesome! Thank you in advance for your contribution. Here are a few guidelines that will help you along the way.
+So you want to contribute to CommandRM? Awesome! Thank you in advance for your contribution. Here are a few guidelines that will help you along the way.
 
 
 ## Opening an Issue
 
-If you think you have found a bug, or have a new feature idea, please start by making sure it hasn't already been [reported or fixed](https://github.com/marmelab/commandrm/issues?q=is%3Aissue+is%3Aclosed). You can search through existing issues and PRs to see if someone has reported one similar to yours.
+If you think you have found a bug, or have a new feature idea, please start by making sure it hasn't already been [reported or fixed](https://github.com/mmdj04/CommandRM/issues?q=is%3Aissue+is%3Aclosed). You can search through existing issues and PRs to see if someone has reported one similar to yours.
 
 Next, create a new issue that briefly explains the problem, and provides a bit of background as to the circumstances that triggered it, and steps to reproduce it.
 
@@ -47,4 +47,4 @@ make lint
 
 ## License
 
-By contributing your code to the marmelab/commandrm GitHub repository, you agree to license your contribution under the MIT license.
+By contributing your code to the mmdj04/CommandRM GitHub repository, you agree to license your contribution under the MIT license.

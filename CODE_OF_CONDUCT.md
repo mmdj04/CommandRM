@@ -36,7 +36,7 @@ Este Código de Conduta se aplica a todos os espaços da comunidade e também se
 
 ## Aplicação
 
-Casos de comportamento abusivo, assediador ou de outra forma inaceitável podem ser reportados aos líderes da comunidade responsáveis pela aplicação em contact@marmelab.com.
+Casos de comportamento abusivo, assediador ou de outra forma inaceitável podem ser reportados aos líderes da comunidade responsáveis pela aplicação em matheusmoraesdj2025@gmail.com.
 Todas as reclamações serão revisadas e investigadas de forma rápida e justa.
 
 Todos os líderes da comunidade são obrigados a respeitar a privacidade e a segurança do autor de qualquer incidente.
