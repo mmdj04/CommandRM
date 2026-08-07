@@ -61,6 +61,15 @@
 * Remover emojis de todos os arquivos do projeto
 * Corrigir caracteres especiais do Português Brasileiro em toda a documentação
 * Corrigir erros de lint do React Hooks (refs, imutabilidade, useMemo)
+* Corrigir caracteres PT-BR em CLAUDE.md (250+ correções), AGENTS.md e CODE_OF_CONDUCT.md
+* Corrigir transição de tema: remover `transition-all` de 8 componentes UI para troca instantânea light/dark
+
+### Personalização
+
+* Sidebar: exibir nome do CRM dinamicamente (substituir "Acme Inc." por configuração)
+* Sidebar: adicionar crédito "desenvolvido por Matheus Moraes" com link WhatsApp (+55 21 97469-9723)
+* Login: adicionar crédito do desenvolvedor na tela de fundo
+* Remover logotipo padrão (clientes personalizam nome e imagem)
 
 ### CI/CD
 
