@@ -22,7 +22,7 @@ export function SalesCreate() {
     onSuccess: () => {
       notify("resources.sales.create.success", {
         messageArgs: {
-          _: "User created. They will soon receive an email to set their password.",
+          _: "Usuário criado. Ele receberá um email em breve para definir sua senha.",
         },
       });
       redirect("/sales");
@@ -31,7 +31,7 @@ export function SalesCreate() {
       notify(
         error.message ||
           translate("resources.sales.create.error", {
-            _: "An error occurred while creating the user.",
+            _: "Ocorreu um erro ao criar o usuário.",
           }),
         {
           type: "error",
@@ -49,7 +49,7 @@ export function SalesCreate() {
         <CardHeader>
           <CardTitle>
             {translate("resources.sales.create.title", {
-              _: "Create a new user",
+              _: "Criar um novo usuário",
             })}
           </CardTitle>
         </CardHeader>

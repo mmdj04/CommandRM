@@ -14,7 +14,7 @@ import { getRelativeTimeString } from "./dealUtils";
 
 export const DealArchivedList = () => {
   const translate = useTranslate();
-  const [locale = "en"] = useLocaleState();
+  const [locale = "pt-BR"] = useLocaleState();
   const { identity } = useGetIdentity();
   const {
     data: archivedLists,

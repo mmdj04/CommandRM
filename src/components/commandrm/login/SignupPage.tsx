@@ -115,7 +115,7 @@ export const SignupPage = () => {
           </h1>
           <p className="text-base mb-4">
             {translate("crm.auth.signup.create_first_user", {
-              _: "Create the first user account to complete the setup.",
+              _: "Crie a primeira conta de usuário para concluir a configuração.",
             })}
           </p>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

@@ -58,7 +58,7 @@ export function SalesEdit() {
       notify("resources.sales.edit.error", {
         type: "error",
         messageArgs: {
-          _: "An error occurred. Please try again.",
+          _: "Ocorreu um erro. Por favor, tente novamente.",
         },
       });
     },

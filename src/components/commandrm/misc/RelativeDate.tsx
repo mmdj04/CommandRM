@@ -28,14 +28,14 @@ const getDateFnsLocale = (locale: string) => {
   return enUS;
 };
 
-export const formatLocalizedDate = (date: string, locale = "en") =>
+export const formatLocalizedDate = (date: string, locale = "pt-BR") =>
   new Intl.DateTimeFormat(locale, {
     year: "numeric",
     month: "long",
     day: "numeric",
   }).format(new Date(date));
 
-export const formatRelativeDate = (date: string, locale = "en") => {
+export const formatRelativeDate = (date: string, locale = "pt-BR") => {
   const dateObj = new Date(date);
   const now = new Date();
   const dateFnsLocale = getDateFnsLocale(locale);
@@ -48,7 +48,7 @@ export const formatRelativeDate = (date: string, locale = "en") => {
 };
 
 export const useRelativeDate = (date: string) => {
-  const [locale = "en"] = useLocaleState();
+  const [locale = "pt-BR"] = useLocaleState();
 
   return formatRelativeDate(date, locale);
 };

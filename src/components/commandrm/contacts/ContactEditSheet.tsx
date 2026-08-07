@@ -71,7 +71,7 @@ const ContactEditMenuButton = ({
         <Button variant="ghost" size="icon">
           <EllipsisVertical />
           <span className="sr-only">
-            {translate("ra.action.open_menu", { _: "More" })}
+            {translate("ra.action.open_menu", { _: "Mais" })}
           </span>
         </Button>
       </DropdownMenuTrigger>

@@ -189,7 +189,7 @@ const CompanyShowContent = () => {
 
 const ContactsIterator = () => {
   const translate = useTranslate();
-  const [locale = "en"] = useLocaleState();
+  const [locale = "pt-BR"] = useLocaleState();
   const location = useLocation();
   const { data: contacts, error, isPending } = useListContext<Contact>();
 
@@ -260,7 +260,7 @@ const CreateRelatedContactButton = () => {
 
 const DealsIterator = () => {
   const translate = useTranslate();
-  const [locale = "en"] = useLocaleState();
+  const [locale = "pt-BR"] = useLocaleState();
   const { data: deals, error, isPending } = useListContext<Deal>();
   const { dealStages, dealCategories, currency } = useConfigurationContext();
   if (isPending || error) return null;

@@ -178,7 +178,7 @@ export const AddressInfo = ({ record }: { record: Company }) => {
 
 export const AdditionalInfo = ({ record }: { record: Company }) => {
   const translate = useTranslate();
-  const [locale = "en"] = useLocaleState();
+  const [locale = "pt-BR"] = useLocaleState();
   const { identity } = useGetIdentity();
   const isCurrentUser = record.sales_id === identity?.id;
   const salesName = useGetSalesName(record.sales_id, {

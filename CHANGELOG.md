@@ -26,6 +26,22 @@
 * Deploy das Edge Functions `update_password` e `users` com correções
 * Remover retry desnecessário que causava cascata de 429s
 
+### Localização (PT-BR)
+
+* Corrigir meses em inglês no gráfico "Receita de Oportunidades Futuras": locale `en-US` → `pt-BR` com `date-fns/locale`
+* Corrigir fallback "Won"/"Lost" para "Ganhou"/"Perdido" no gráfico de oportunidades
+* Traduzir "Forgot password?" → "Esqueceu sua senha?" na página de login
+* Traduzir "Create the first user account..." → "Crie a primeira conta de usuário..." no cadastro
+* Traduzir 3 mensagens em inglês no `SalesCreate` (criação de usuário)
+* Traduzir mensagem de erro em inglês no `SalesEdit`
+* Traduzir "More" → "Mais" no botão de menu do contato
+* Corrigir locale padrão `"en"` → `"pt-BR"` em `dealUtils.ts`, `RelativeDate.tsx`, `CompanyShow.tsx`, `CompanyAside.tsx`, `ContactBackgroundInfo.tsx`, `ContactListContent.tsx`, `DealArchivedList.tsx`
+
+### Dados de Teste
+
+* Adicionar script `test-data/seed.cjs` para popular dados de teste realistas via Supabase API
+* Documentação em `doc/seed-script.md` com uso, configuração e estrutura do script
+
 ---
 
 ## v1.8.1 - 07/08/2026

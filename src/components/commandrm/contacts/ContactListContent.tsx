@@ -105,7 +105,7 @@ const ContactItemContent = ({
   handleToggleItem: (id: Identifier, event: MouseEvent) => void;
 }) => {
   const translate = useTranslate();
-  const [locale = "en"] = useLocaleState();
+  const [locale = "pt-BR"] = useLocaleState();
   const { selectedIds } = useListContext<Contact>();
   const lastActivity = contact.last_seen
     ? formatRelativeDate(contact.last_seen, locale)
