@@ -54,7 +54,7 @@ export const MobileNavigation = () => {
         paddingBottom: isPwa && isWebiOS ? 15 : undefined,
       }}
     >
-      <div className="flex justify-around items-end h-14 px-1 max-w-lg mx-auto">
+      <div className="flex justify-around items-center h-14 px-1 max-w-lg mx-auto">
         <NavigationButton
           href="/"
           Icon={Home}
@@ -97,7 +97,7 @@ const NavigationButton = ({
     asChild
     variant="ghost"
     className={cn(
-      "flex-col gap-0.5 h-auto py-1.5 px-2 rounded-md min-w-0 flex-1 max-w-[72px]",
+      "flex-col gap-0.5 h-11 px-2 rounded-md min-w-0 flex-1 max-w-[72px] justify-center",
       isActive ? null : "text-muted-foreground",
     )}
   >
@@ -139,10 +139,10 @@ const CreateButton = () => {
           <Button
             variant="default"
             size="icon"
-            className="h-12 w-12 rounded-full -mt-4 shadow-lg"
+            className="h-11 w-11 rounded-full shadow-lg"
             aria-label={translate("ra.action.create")}
           >
-            <Plus className="size-6" />
+            <Plus className="size-5" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
