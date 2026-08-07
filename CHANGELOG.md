@@ -343,6 +343,8 @@ make supabase-migrate-database
 
 **Changelog completo**: https://github.com/mmdj04/CommandRM/compare/v1.0.0...v1.5.0
 
+---
+
 ## v1.0.0 - 10/03/2026
 
 ## O que mudou
